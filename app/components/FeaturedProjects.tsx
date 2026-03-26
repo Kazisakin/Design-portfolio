@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { projects } from '../data/projects';
 
-const featured = projects.filter((p) => p.featured);
+const featured = projects.filter((p) => p.featured && !p.hidden);
 
 export default function FeaturedProjects() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -24,7 +24,7 @@ export default function FeaturedProjects() {
     <section ref={sectionRef} className="py-24 sm:py-32 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section header */}
-        <div className="reveal flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-16">
+        <div className="reveal flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-16">
           <div>
             <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">Selected Work</span>
             <h2 className="font-display font-bold text-4xl sm:text-5xl text-white">Featured Projects</h2>
@@ -48,21 +48,35 @@ export default function FeaturedProjects() {
             >
               {/* Thumbnail */}
               <div className="aspect-[4/3] bg-[#1a1a1a] relative overflow-hidden">
-                {/* Placeholder gradient while no image is uploaded */}
+                {/* Placeholder gradient */}
                 <div
                   className="absolute inset-0"
                   style={{
                     background: `linear-gradient(135deg, hsl(${(i * 60) + 250}, 50%, 15%) 0%, hsl(${(i * 60) + 280}, 60%, 10%) 100%)`,
                   }}
                 />
-                {/* Real image — shown when file exists */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={project.coverImage}
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                />
+                {/* Cover image */}
+                {project.coverImage && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={project.coverImage}
+                    alt={project.title}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${project.coverVideo ? 'group-hover:opacity-0' : ''}`}
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
+                )}
+                {/* Video — always visible if no cover image, hover-reveal if cover image exists */}
+                {project.coverVideo && (
+                  <video
+                    src={project.coverVideo}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    poster={!project.coverImage ? project.media.find((m) => m.type === 'image')?.src : undefined}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${project.coverImage ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'}`}
+                  />
+                )}
                 <div className="overlay" />
                 <div className="card-info">
                   <p className="text-white/90 text-sm font-medium">{project.tagline}</p>

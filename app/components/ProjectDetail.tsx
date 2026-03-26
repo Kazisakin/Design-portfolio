@@ -58,29 +58,29 @@ export default function ProjectDetail({ project }: Props) {
         {/* Hero */}
         <div className="reveal mb-6">
           <span className="text-accent text-xs font-semibold uppercase tracking-[0.2em]">{project.category}</span>
-          <h1 className="font-display font-extrabold text-4xl sm:text-6xl text-white mt-2 leading-tight">
+          <h1 className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl text-white mt-2 leading-tight">
             {project.title}
           </h1>
-          <p className="text-white/50 text-xl mt-3">{project.tagline}</p>
+          <p className="text-white/50 text-base sm:text-xl mt-3">{project.tagline}</p>
         </div>
 
         {/* Meta */}
-        <div className="reveal reveal-delay-1 grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12 p-6 rounded-2xl bg-[#111] border border-white/5">
+        <div className="reveal reveal-delay-1 grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12 p-4 sm:p-6 rounded-2xl bg-[#111] border border-white/5">
           {[
-            { label: 'Year', value: project.year },
-            { label: 'Role', value: project.role },
-            { label: 'Client', value: project.client ?? 'Personal' },
-            { label: 'Tools', value: project.tools.join(', ') },
-          ].map(({ label, value }) => (
-            <div key={label}>
+            { label: 'Year',   value: project.year,                  wide: false },
+            { label: 'Role',   value: project.role,                  wide: false },
+            { label: 'Client', value: project.client ?? 'Personal',  wide: false },
+            { label: 'Tools',  value: project.tools.join(', '),      wide: true  },
+          ].map(({ label, value, wide }) => (
+            <div key={label} className={wide ? 'col-span-2 sm:col-span-1' : ''}>
               <p className="text-white/30 text-xs uppercase tracking-wider mb-1">{label}</p>
-              <p className="text-white text-sm font-medium">{value}</p>
+              <p className="text-white text-sm font-medium break-words">{value}</p>
             </div>
           ))}
         </div>
 
         {/* Cover image */}
-        {project.coverImage && (
+        {(project.coverImage || project.coverVideo) && (
           <div
             className="reveal reveal-delay-1 mb-14 rounded-2xl overflow-hidden bg-[#111] aspect-[16/9] cursor-pointer relative"
             onClick={() => setLightbox(0)}
@@ -129,29 +129,25 @@ export default function ProjectDetail({ project }: Props) {
           </div>
         </div>
 
-        {/* Image gallery */}
+        {/* Image gallery — masonry collage, each image at its natural aspect ratio */}
         {imageMedia.length > 0 && (
           <div className="reveal mb-14">
             <h2 className="font-display font-bold text-2xl text-white mb-6">Gallery</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="columns-1 sm:columns-2 gap-4">
               {imageMedia.map((item, idx) => (
                 <div
                   key={idx}
                   onClick={() => setLightbox(idx)}
-                  className="rounded-xl overflow-hidden bg-[#111] aspect-[4/3] cursor-pointer relative group border border-white/5 hover:border-accent/30 transition-colors"
+                  className="break-inside-avoid mb-4 rounded-xl overflow-hidden bg-[#111] cursor-pointer relative group border border-white/5 hover:border-accent/30 transition-colors"
                 >
-                  <div
-                    className="absolute inset-0"
-                    style={{ background: 'linear-gradient(135deg, #1a0f2e 0%, #0d0d0d 100%)' }}
-                  />
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={item.src}
                     alt={item.alt ?? `${project.title} ${idx + 1}`}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-auto block group-hover:scale-[1.02] transition-transform duration-500"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors rounded-xl" />
                 </div>
               ))}
             </div>
@@ -178,7 +174,11 @@ export default function ProjectDetail({ project }: Props) {
                   ) : (
                     <video
                       src={item.src}
+                      autoPlay
+                      muted
+                      playsInline
                       controls
+                      loop={false}
                       className="w-full rounded-2xl"
                       poster={item.thumbnail}
                     />
@@ -232,7 +232,7 @@ export default function ProjectDetail({ project }: Props) {
 
           {lightbox > 0 && (
             <button
-              className="absolute left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              className="absolute left-2 sm:left-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
               onClick={(e) => { e.stopPropagation(); setLightbox((i) => Math.max((i ?? 1) - 1, 0)); }}
             >
               <ChevronLeft size={20} />
@@ -253,7 +253,7 @@ export default function ProjectDetail({ project }: Props) {
 
           {lightbox < imageMedia.length - 1 && (
             <button
-              className="absolute right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              className="absolute right-2 sm:right-5 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
               onClick={(e) => { e.stopPropagation(); setLightbox((i) => Math.min((i ?? 0) + 1, imageMedia.length - 1)); }}
             >
               <ChevronRight size={20} />

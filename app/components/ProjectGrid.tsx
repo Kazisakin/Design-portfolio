@@ -10,11 +10,12 @@ const FILTERS: Filter[] = [ALL, 'UI/UX', 'Social Media', 'Motion', 'Branding'];
 
 export default function ProjectGrid() {
   const [active, setActive] = useState<Filter>(ALL);
-  const [visible, setVisible] = useState(projects);
+  const [visible, setVisible] = useState(projects.filter((p) => !p.hidden));
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setVisible(active === ALL ? projects : projects.filter((p) => p.category === active));
+    const visible = projects.filter((p) => !p.hidden);
+    setVisible(active === ALL ? visible : visible.filter((p) => p.category === active));
   }, [active]);
 
   useEffect(() => {
@@ -31,12 +32,12 @@ export default function ProjectGrid() {
   return (
     <div>
       {/* Filter bar */}
-      <div className="flex flex-wrap gap-2 mb-12">
+      <div className="flex flex-wrap items-center gap-2 mb-12">
         {FILTERS.map((f) => (
           <button
             key={f}
             onClick={() => setActive(f)}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-4 sm:px-5 py-2 rounded-full text-sm font-medium transition-all ${
               active === f
                 ? 'bg-accent text-white'
                 : 'border border-white/10 text-white/50 hover:border-accent/50 hover:text-white'
@@ -45,7 +46,7 @@ export default function ProjectGrid() {
             {f}
           </button>
         ))}
-        <span className="ml-auto flex items-center text-white/25 text-sm">
+        <span className="sm:ml-auto text-white/25 text-sm">
           {visible.length} project{visible.length !== 1 ? 's' : ''}
         </span>
       </div>
@@ -66,13 +67,26 @@ export default function ProjectGrid() {
                   background: `linear-gradient(135deg, hsl(${(i * 47) + 250}, 45%, 14%) 0%, hsl(${(i * 47) + 285}, 55%, 9%) 100%)`,
                 }}
               />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={project.coverImage}
-                alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover"
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-              />
+              {project.coverImage && (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={project.coverImage}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+              )}
+              {!project.coverImage && project.coverVideo && (
+                <video
+                  src={project.coverVideo}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  poster={project.media.find((m) => m.type === 'image')?.src}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
               <div className="overlay" />
               <div className="card-info">
                 <p className="text-white/90 text-sm">{project.tagline}</p>
