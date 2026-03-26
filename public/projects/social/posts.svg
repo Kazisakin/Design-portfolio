@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A0A2E"/>
+      <stop offset="100%" style="stop-color:#2D1050"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC4899"/>
+      <stop offset="100%" style="stop-color:#A855F7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <!-- Post 1 (1:1) -->
+  <rect x="60" y="80" width="280" height="280" rx="16" fill="#2D1050" stroke="#EC4899" stroke-width="1.5"/>
+  <rect x="60" y="80" width="280" height="280" rx="16" fill="url(#pink)" opacity="0.12"/>
+  <circle cx="200" cy="210" r="70" fill="#EC4899" opacity="0.3"/>
+  <circle cx="200" cy="210" r="45" fill="#A855F7" opacity="0.5"/>
+  <text x="200" y="220" font-family="system-ui, sans-serif" font-size="32" text-anchor="middle">🌸</text>
+  <rect x="80" y="308" width="180" height="12" rx="4" fill="white" opacity="0.8"/>
+  <rect x="80" y="326" width="120" height="8" rx="3" fill="#F9A8D4" opacity="0.6"/>
+  <!-- Post 2 (1:1) -->
+  <rect x="380" y="80" width="280" height="280" rx="16" fill="#2D1050" stroke="#A855F7" stroke-width="1.5"/>
+  <text x="520" y="185" font-family="system-ui, sans-serif" font-size="50" font-weight="800" fill="white" text-anchor="middle">NEW</text>
+  <text x="520" y="230" font-family="system-ui, sans-serif" font-size="26" fill="#F9A8D4" text-anchor="middle">POST</text>
+  <rect x="395" y="252" width="250" height="3" rx="2" fill="url(#pink)"/>
+  <rect x="400" y="270" width="200" height="10" rx="3" fill="#D8B4FE" opacity="0.5"/>
+  <rect x="420" y="308" width="120" height="30" rx="15" fill="url(#pink)" opacity="0.9"/>
+  <text x="480" y="328" font-family="system-ui, sans-serif" font-size="12" fill="white" text-anchor="middle">EXPLORE MORE</text>
+  <!-- Post 3 (4:5) -->
+  <rect x="700" y="40" width="280" height="350" rx="16" fill="#2D1050" stroke="#EC4899" stroke-width="1.5"/>
+  <rect x="700" y="40" width="280" height="180" rx="16" fill="url(#pink)" opacity="0.4"/>
+  <circle cx="840" cy="130" r="55" fill="#1A0A2E" opacity="0.8"/>
+  <text x="840" y="143" font-family="system-ui, sans-serif" font-size="36" text-anchor="middle">✨</text>
+  <rect x="720" y="242" width="200" height="14" rx="4" fill="white" opacity="0.9"/>
+  <rect x="720" y="264" width="160" height="10" rx="3" fill="#F9A8D4" opacity="0.7"/>
+  <rect x="720" y="282" width="130" height="10" rx="3" fill="#D8B4FE" opacity="0.5"/>
+  <rect x="720" y="318" width="100" height="30" rx="15" fill="url(#pink)"/>
+  <text x="770" y="338" font-family="system-ui, sans-serif" font-size="12" fill="white" text-anchor="middle">SHOP NOW</text>
+  <!-- Engagement stats row -->
+  <rect x="60" y="430" width="280" height="70" rx="12" fill="#2D1050" opacity="0.6"/>
+  <text x="110" y="465" font-family="system-ui, sans-serif" font-size="24" fill="#EC4899">♥ 2.4k</text>
+  <text x="110" y="488" font-family="system-ui, sans-serif" font-size="13" fill="#D8B4FE" opacity="0.7">Likes avg per post</text>
+  <rect x="380" y="430" width="280" height="70" rx="12" fill="#2D1050" opacity="0.6"/>
+  <text x="430" y="465" font-family="system-ui, sans-serif" font-size="24" fill="#A855F7">💬 342</text>
+  <text x="430" y="488" font-family="system-ui, sans-serif" font-size="13" fill="#D8B4FE" opacity="0.7">Comments avg</text>
+  <rect x="700" y="430" width="280" height="70" rx="12" fill="#2D1050" opacity="0.6"/>
+  <text x="750" y="465" font-family="system-ui, sans-serif" font-size="24" fill="#EC4899">📤 890</text>
+  <text x="750" y="488" font-family="system-ui, sans-serif" font-size="13" fill="#D8B4FE" opacity="0.7">Shares avg</text>
+  <!-- Label -->
+  <text x="600" y="590" font-family="system-ui, sans-serif" font-size="32" font-weight="600" fill="white" text-anchor="middle">Post Templates</text>
+  <text x="600" y="624" font-family="system-ui, sans-serif" font-size="16" fill="#F9A8D4" text-anchor="middle">1:1 &amp; 4:5 Format · 20+ Designs</text>
+</svg>

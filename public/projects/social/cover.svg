@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A0A2E"/>
+      <stop offset="100%" style="stop-color:#2D1050"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EC4899"/>
+      <stop offset="100%" style="stop-color:#A855F7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <!-- Instagram post card 1 -->
+  <rect x="80" y="80" width="300" height="300" rx="16" fill="#2D1050"/>
+  <rect x="80" y="80" width="300" height="300" rx="16" fill="url(#pink)" opacity="0.15"/>
+  <circle cx="230" cy="200" r="60" fill="url(#pink)" opacity="0.6"/>
+  <rect x="100" y="300" width="180" height="12" rx="4" fill="#EC4899" opacity="0.8"/>
+  <rect x="100" y="320" width="120" height="8" rx="3" fill="#A855F7" opacity="0.5"/>
+  <circle cx="104" cy="100" r="16" fill="url(#pink)" opacity="0.8"/>
+  <rect x="126" y="93" width="80" height="8" rx="3" fill="white" opacity="0.6"/>
+  <rect x="126" y="107" width="50" height="6" rx="2" fill="#D1D5DB" opacity="0.4"/>
+  <!-- Instagram story card -->
+  <rect x="420" y="40" width="180" height="320" rx="16" fill="#2D1050"/>
+  <rect x="420" y="40" width="180" height="320" rx="16" fill="url(#pink)" opacity="0.15"/>
+  <rect x="420" y="40" width="180" height="130" rx="16" fill="url(#pink)" opacity="0.5"/>
+  <circle cx="510" cy="105" r="35" fill="#A855F7" opacity="0.7"/>
+  <rect x="440" y="190" width="140" height="10" rx="4" fill="white" opacity="0.8"/>
+  <rect x="450" y="208" width="110" height="8" rx="3" fill="#EC4899" opacity="0.7"/>
+  <rect x="460" y="224" width="80" height="8" rx="3" fill="#D1D5DB" opacity="0.4"/>
+  <rect x="440" y="290" width="100" height="32" rx="16" fill="url(#pink)" opacity="0.9"/>
+  <text x="490" y="311" font-family="system-ui, sans-serif" font-size="12" fill="white" text-anchor="middle">SHOP NOW</text>
+  <!-- Instagram post card 2 -->
+  <rect x="640" y="80" width="300" height="300" rx="16" fill="#2D1050"/>
+  <rect x="640" y="80" width="300" height="300" rx="16" fill="url(#pink)" opacity="0.1"/>
+  <rect x="640" y="80" width="300" height="170" rx="16" fill="#A855F7" opacity="0.3"/>
+  <text x="790" y="180" font-family="system-ui, sans-serif" font-size="36" font-weight="800" fill="white" text-anchor="middle" opacity="0.9">SUMMER</text>
+  <text x="790" y="215" font-family="system-ui, sans-serif" font-size="20" fill="#F9A8D4" text-anchor="middle">COLLECTION 2024</text>
+  <rect x="660" y="275" width="120" height="10" rx="4" fill="#EC4899" opacity="0.8"/>
+  <rect x="660" y="293" width="200" height="8" rx="3" fill="#7C3AED" opacity="0.5"/>
+  <circle cx="660" cy="100" r="16" fill="url(#pink)" opacity="0.8"/>
+  <rect x="682" y="93" width="80" height="8" rx="3" fill="white" opacity="0.6"/>
+  <!-- Highlight icons row -->
+  <circle cx="200" cy="480" r="45" fill="url(#pink)" opacity="0.8"/>
+  <text x="200" y="488" font-family="system-ui, sans-serif" font-size="28" text-anchor="middle">✨</text>
+  <circle cx="340" cy="480" r="45" fill="#7C3AED" opacity="0.8"/>
+  <text x="340" y="488" font-family="system-ui, sans-serif" font-size="28" text-anchor="middle">🛍️</text>
+  <circle cx="480" cy="480" r="45" fill="#EC4899" opacity="0.8"/>
+  <text x="480" y="488" font-family="system-ui, sans-serif" font-size="28" text-anchor="middle">💜</text>
+  <circle cx="620" cy="480" r="45" fill="#A855F7" opacity="0.8"/>
+  <text x="620" y="488" font-family="system-ui, sans-serif" font-size="28" text-anchor="middle">🌸</text>
+  <circle cx="760" cy="480" r="45" fill="#7C3AED" opacity="0.8"/>
+  <text x="760" y="488" font-family="system-ui, sans-serif" font-size="28" text-anchor="middle">📸</text>
+  <circle cx="900" cy="480" r="45" fill="#EC4899" opacity="0.8"/>
+  <text x="900" y="488" font-family="system-ui, sans-serif" font-size="28" text-anchor="middle">💫</text>
+  <!-- Title -->
+  <text x="600" y="598" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="white" text-anchor="middle">Social Media Pack</text>
+  <text x="600" y="636" font-family="system-ui, sans-serif" font-size="18" fill="#F9A8D4" text-anchor="middle">30+ Instagram &amp; Facebook Templates</text>
+  <rect x="500" y="654" width="200" height="3" rx="2" fill="url(#pink)" opacity="0.8"/>
+  <rect x="528" y="676" width="144" height="32" rx="16" fill="#7C3AED" opacity="0.7"/>
+  <text x="600" y="697" font-family="system-ui, sans-serif" font-size="13" fill="#F9A8D4" text-anchor="middle">Social Media · 2024</text>
+</svg>

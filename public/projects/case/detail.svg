@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F0B1A"/>
+      <stop offset="100%" style="stop-color:#1A0F2E"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <!-- Case detail panel -->
+  <rect x="60" y="60" width="500" height="540" rx="16" fill="#130E24" stroke="#8B5CF6" stroke-width="1.5"/>
+  <!-- Case header -->
+  <rect x="60" y="60" width="500" height="80" rx="16" fill="#1A0F2E"/>
+  <text x="88" y="96" font-family="system-ui, sans-serif" font-size="11" fill="#7C3AED">CASE #1042</text>
+  <text x="88" y="120" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="white">Login issue after password reset</text>
+  <rect x="460" y="74" width="70" height="24" rx="12" fill="#EF4444" opacity="0.2"/>
+  <text x="495" y="91" font-family="system-ui, sans-serif" font-size="11" fill="#F87171" text-anchor="middle">High Priority</text>
+  <!-- Case metadata -->
+  <text x="88" y="170" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">Customer</text>
+  <text x="88" y="190" font-family="system-ui, sans-serif" font-size="14" fill="white">Sarah Johnson</text>
+  <text x="280" y="170" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">Opened</text>
+  <text x="280" y="190" font-family="system-ui, sans-serif" font-size="14" fill="white">Today 2:34 PM</text>
+  <text x="88" y="220" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">Category</text>
+  <rect x="88" y="230" width="60" height="22" rx="11" fill="#8B5CF6" opacity="0.3"/>
+  <text x="118" y="245" font-family="system-ui, sans-serif" font-size="11" fill="#A78BFA" text-anchor="middle">Auth</text>
+  <text x="200" y="220" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">Status</text>
+  <rect x="200" y="230" width="60" height="22" rx="11" fill="#F59E0B" opacity="0.2"/>
+  <text x="230" y="245" font-family="system-ui, sans-serif" font-size="11" fill="#FCD34D" text-anchor="middle">Open</text>
+  <!-- Message thread -->
+  <rect x="80" y="272" width="460" height="60" rx="10" fill="#1A0F2E"/>
+  <circle cx="100" cy="302" r="14" fill="#8B5CF6" opacity="0.6"/>
+  <text x="100" y="307" font-family="system-ui, sans-serif" font-size="10" fill="white" text-anchor="middle">SJ</text>
+  <text x="124" y="295" font-family="system-ui, sans-serif" font-size="11" fill="#9CA3AF">Sarah Johnson · 2:34 PM</text>
+  <text x="124" y="314" font-family="system-ui, sans-serif" font-size="12" fill="#D1D5DB">I can't log in after resetting my password. It says invalid credentials.</text>
+  <rect x="80" y="344" width="460" height="60" rx="10" fill="#1F0F35"/>
+  <circle cx="100" cy="374" r="14" fill="#7C3AED" opacity="0.8"/>
+  <text x="100" y="379" font-family="system-ui, sans-serif" font-size="10" fill="white" text-anchor="middle">AI</text>
+  <text x="124" y="367" font-family="system-ui, sans-serif" font-size="11" fill="#A78BFA">AI Suggested · 2:35 PM</text>
+  <text x="124" y="386" font-family="system-ui, sans-serif" font-size="12" fill="#D1D5DB">Hi Sarah! I can help resolve your login issue. Please try...</text>
+  <!-- Reply input -->
+  <rect x="80" y="530" width="460" height="50" rx="10" fill="#1A0F2E" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="100" y="560" font-family="system-ui, sans-serif" font-size="13" fill="#4B5563">Type a reply...</text>
+  <rect x="478" y="538" width="52" height="34" rx="8" fill="#8B5CF6"/>
+  <text x="504" y="560" font-family="system-ui, sans-serif" font-size="12" fill="white" text-anchor="middle">Send</text>
+  <!-- Right panel: Analytics -->
+  <rect x="600" y="60" width="540" height="260" rx="16" fill="#130E24" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="626" y="94" font-family="system-ui, sans-serif" font-size="15" fill="#A78BFA" font-weight="600">Case Analytics</text>
+  <!-- Bar chart -->
+  <rect x="626" y="150" width="40" height="100" rx="4" fill="#8B5CF6" opacity="0.4"/>
+  <rect x="676" y="120" width="40" height="130" rx="4" fill="#8B5CF6" opacity="0.6"/>
+  <rect x="726" y="100" width="40" height="150" rx="4" fill="#8B5CF6" opacity="0.8"/>
+  <rect x="776" y="130" width="40" height="120" rx="4" fill="#8B5CF6" opacity="0.5"/>
+  <rect x="826" y="90" width="40" height="160" rx="4" fill="#8B5CF6"/>
+  <rect x="876" y="110" width="40" height="140" rx="4" fill="#8B5CF6" opacity="0.7"/>
+  <rect x="926" y="125" width="40" height="125" rx="4" fill="#8B5CF6" opacity="0.5"/>
+  <rect x="976" y="140" width="40" height="110" rx="4" fill="#8B5CF6" opacity="0.4"/>
+  <line x1="620" y1="252" x2="1130" y2="252" stroke="#374151" stroke-width="1"/>
+  <text x="646" y="270" font-family="system-ui, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Mon</text>
+  <text x="696" y="270" font-family="system-ui, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Tue</text>
+  <text x="746" y="270" font-family="system-ui, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Wed</text>
+  <text x="796" y="270" font-family="system-ui, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Thu</text>
+  <text x="846" y="270" font-family="system-ui, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Fri</text>
+  <text x="896" y="270" font-family="system-ui, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Sat</text>
+  <text x="946" y="270" font-family="system-ui, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Sun</text>
+  <text x="996" y="270" font-family="system-ui, sans-serif" font-size="11" fill="#6B7280" text-anchor="middle">Today</text>
+  <!-- Category breakdown -->
+  <rect x="600" y="340" width="260" height="260" rx="16" fill="#130E24" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="626" y="374" font-family="system-ui, sans-serif" font-size="15" fill="#A78BFA" font-weight="600">Categories</text>
+  <circle cx="730" cy="490" r="70" fill="none" stroke="#8B5CF6" stroke-width="20" stroke-dasharray="110 220" stroke-dashoffset="0"/>
+  <circle cx="730" cy="490" r="70" fill="none" stroke="#EF4444" stroke-width="20" stroke-dasharray="55 220" stroke-dashoffset="-110"/>
+  <circle cx="730" cy="490" r="70" fill="none" stroke="#10B981" stroke-width="20" stroke-dasharray="40 220" stroke-dashoffset="-165"/>
+  <circle cx="730" cy="490" r="70" fill="none" stroke="#F59E0B" stroke-width="20" stroke-dasharray="15 220" stroke-dashoffset="-205"/>
+  <text x="730" y="496" font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">248</text>
+  <text x="730" y="514" font-family="system-ui, sans-serif" font-size="10" fill="#6B7280" text-anchor="middle">total</text>
+  <!-- Legend -->
+  <rect x="620" y="400" width="10" height="10" rx="2" fill="#8B5CF6"/>
+  <text x="636" y="410" font-family="system-ui, sans-serif" font-size="11" fill="#9CA3AF">Auth 44%</text>
+  <rect x="620" y="418" width="10" height="10" rx="2" fill="#EF4444"/>
+  <text x="636" y="428" font-family="system-ui, sans-serif" font-size="11" fill="#9CA3AF">Billing 22%</text>
+  <rect x="620" y="436" width="10" height="10" rx="2" fill="#10B981"/>
+  <text x="636" y="446" font-family="system-ui, sans-serif" font-size="11" fill="#9CA3AF">Feature 16%</text>
+  <rect x="620" y="454" width="10" height="10" rx="2" fill="#F59E0B"/>
+  <text x="636" y="464" font-family="system-ui, sans-serif" font-size="11" fill="#9CA3AF">Other 18%</text>
+  <!-- AI performance card -->
+  <rect x="880" y="340" width="260" height="260" rx="16" fill="#130E24" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="906" y="374" font-family="system-ui, sans-serif" font-size="15" fill="#A78BFA" font-weight="600">AI Performance</text>
+  <text x="1010" y="440" font-family="system-ui, sans-serif" font-size="48" font-weight="700" fill="white" text-anchor="middle">94%</text>
+  <text x="1010" y="470" font-family="system-ui, sans-serif" font-size="13" fill="#A78BFA" text-anchor="middle">Resolution Rate</text>
+  <rect x="906" y="494" width="218" height="3" rx="2" fill="#1A0F2E"/>
+  <rect x="906" y="494" width="206" height="3" rx="2" fill="url(#purple)"/>
+  <text x="906" y="520" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">Avg response time</text>
+  <text x="1120" y="520" font-family="system-ui, sans-serif" font-size="12" fill="#34D399" text-anchor="end">1.2s</text>
+  <text x="906" y="544" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">Human escalations</text>
+  <text x="1120" y="544" font-family="system-ui, sans-serif" font-size="12" fill="#F87171" text-anchor="end">6%</text>
+  <text x="906" y="568" font-family="system-ui, sans-serif" font-size="12" fill="#6B7280">CSAT score</text>
+  <text x="1120" y="568" font-family="system-ui, sans-serif" font-size="12" fill="#A78BFA" text-anchor="end">4.8/5</text>
+  <!-- Title -->
+  <text x="600" y="672" font-family="system-ui, sans-serif" font-size="32" font-weight="600" fill="white" text-anchor="middle">Detail View</text>
+  <text x="600" y="706" font-family="system-ui, sans-serif" font-size="16" fill="#A78BFA" text-anchor="middle">Case thread + analytics panels</text>
+</svg>

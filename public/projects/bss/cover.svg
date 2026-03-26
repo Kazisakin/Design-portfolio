@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#022C22"/>
+      <stop offset="100%" style="stop-color:#14532D"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10B981"/>
+      <stop offset="100%" style="stop-color:#34D399"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <!-- Decorative pattern -->
+  <circle cx="150" cy="150" r="120" fill="#10B981" opacity="0.08"/>
+  <circle cx="1050" cy="650" r="150" fill="#10B981" opacity="0.08"/>
+  <!-- Event poster mockup -->
+  <rect x="160" y="80" width="360" height="500" rx="16" fill="#022C22" stroke="#10B981" stroke-width="2"/>
+  <!-- Poster header -->
+  <rect x="160" y="80" width="360" height="120" rx="16" fill="#10B981" opacity="0.7"/>
+  <text x="340" y="130" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="white" text-anchor="middle">BSS PRESENTS</text>
+  <text x="340" y="158" font-family="system-ui, sans-serif" font-size="14" fill="#D1FAE5" text-anchor="middle">Bangladesh Student Society · UNB</text>
+  <!-- Star/ornament -->
+  <polygon points="340,220 353,252 388,252 362,272 372,305 340,285 308,305 318,272 292,252 327,252" fill="#10B981" opacity="0.9"/>
+  <!-- Event title -->
+  <text x="340" y="360" font-family="system-ui, sans-serif" font-size="32" font-weight="700" fill="white" text-anchor="middle">CULTURAL</text>
+  <text x="340" y="398" font-family="system-ui, sans-serif" font-size="32" font-weight="700" fill="#34D399" text-anchor="middle">NIGHT 2024</text>
+  <rect x="200" y="415" width="280" height="2" rx="1" fill="url(#green)" opacity="0.8"/>
+  <text x="340" y="444" font-family="system-ui, sans-serif" font-size="15" fill="#A7F3D0" text-anchor="middle">March 15, 2024 · UNB Student Centre</text>
+  <text x="340" y="466" font-family="system-ui, sans-serif" font-size="13" fill="#6EE7B7" text-anchor="middle">7:00 PM — 11:00 PM</text>
+  <rect x="250" y="498" width="180" height="38" rx="19" fill="#10B981"/>
+  <text x="340" y="522" font-family="system-ui, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="600">REGISTER NOW</text>
+  <!-- Banner mockup -->
+  <rect x="580" y="80" width="460" height="180" rx="16" fill="#022C22" stroke="#10B981" stroke-width="2"/>
+  <rect x="580" y="80" width="460" height="180" rx="16" fill="#10B981" opacity="0.1"/>
+  <text x="810" y="145" font-family="system-ui, sans-serif" font-size="36" font-weight="800" fill="white" text-anchor="middle">EID MUBARAK</text>
+  <text x="810" y="178" font-family="system-ui, sans-serif" font-size="16" fill="#34D399" text-anchor="middle">Bangladesh Student Society — UNB</text>
+  <text x="810" y="235" font-family="system-ui, sans-serif" font-size="30" text-anchor="middle">🌙</text>
+  <!-- Social card mockup -->
+  <rect x="580" y="320" width="220" height="220" rx="16" fill="#022C22" stroke="#10B981" stroke-width="1.5"/>
+  <rect x="580" y="320" width="220" height="220" rx="16" fill="#10B981" opacity="0.12"/>
+  <text x="690" y="420" font-family="system-ui, sans-serif" font-size="48" text-anchor="middle">🎭</text>
+  <rect x="600" y="450" width="180" height="12" rx="4" fill="white" opacity="0.8"/>
+  <rect x="610" y="470" width="140" height="10" rx="3" fill="#34D399" opacity="0.7"/>
+  <rect x="610" y="488" width="100" height="10" rx="3" fill="#6EE7B7" opacity="0.5"/>
+  <!-- Invitation card mockup -->
+  <rect x="820" y="320" width="220" height="220" rx="16" fill="#022C22" stroke="#34D399" stroke-width="1.5"/>
+  <rect x="820" y="320" width="220" height="100" rx="16" fill="#10B981" opacity="0.5"/>
+  <text x="930" y="378" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="white" text-anchor="middle">YOU'RE INVITED</text>
+  <text x="930" y="456" font-family="system-ui, sans-serif" font-size="13" fill="#D1FAE5" text-anchor="middle">Annual Dinner 2024</text>
+  <text x="930" y="478" font-family="system-ui, sans-serif" font-size="12" fill="#A7F3D0" text-anchor="middle">April 20 · 6PM</text>
+  <rect x="860" y="498" width="140" height="28" rx="14" fill="#10B981"/>
+  <text x="930" y="517" font-family="system-ui, sans-serif" font-size="12" fill="white" text-anchor="middle">RSVP TODAY</text>
+  <!-- Title -->
+  <text x="600" y="626" font-family="system-ui, sans-serif" font-size="44" font-weight="700" fill="white" text-anchor="middle">BSS Event Visuals</text>
+  <text x="600" y="663" font-family="system-ui, sans-serif" font-size="18" fill="#34D399" text-anchor="middle">Posters · Banners · Social Media · Invitations</text>
+  <rect x="460" y="680" width="280" height="3" rx="2" fill="url(#green)" opacity="0.8"/>
+  <rect x="528" y="702" width="144" height="30" rx="15" fill="#064E3B" opacity="0.9"/>
+  <text x="600" y="722" font-family="system-ui, sans-serif" font-size="13" fill="#6EE7B7" text-anchor="middle">Branding · 2024</text>
+</svg>
