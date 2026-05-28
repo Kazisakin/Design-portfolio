@@ -5,6 +5,8 @@ export interface MediaItem {
   src: string;       // file path for image/video, embed URL for youtube/vimeo
   alt?: string;
   thumbnail?: string; // optional poster for video
+  wide?: boolean;    // spans full width in collage grid
+  caption?: string;  // optional section label shown under the image
 }
 
 export interface Project {
@@ -260,32 +262,80 @@ export const projects: Project[] = [
   {
     slug: 'roboflight-brand',
     title: 'ROBOFLIGHT',
-    tagline: 'Full website UI & brand identity for an educational robotics platform',
+    tagline: 'Website design & development for a hands-on STEM education platform in New Brunswick',
     category: 'UI/UX',
-    coverImage: '/projects/roboflight/section-01.png',
+    coverImage: '/projects/roboflight/1.png',
     year: '2024',
-    tools: ['Figma', 'Adobe Illustrator', 'Next.js', 'Tailwind CSS'],
+    tools: ['Figma', 'Next.js', 'Tailwind CSS', 'Adobe Illustrator'],
     role: 'UI Designer & Web Developer',
-    client: 'ROBOFLIGHT',
+    client: 'RoboFlight — New Brunswick, Canada',
     description:
-      'Designed and developed the complete website and visual identity for ROBOFLIGHT — an educational platform teaching robotics, coding, and STEM to students. The goal was a modern, energetic look that resonates with students, parents, and educators.',
+      'RoboFlight is a New Brunswick-based STEM education program teaching robotics, drone building, coding, and circuitry to students across 3 schools. I designed and developed the full public website from scratch — shaping the visual identity, information architecture, and UI system that communicates the brand\'s mission to parents, students, and school partners.',
     challenge:
-      'Building a consistent visual language from scratch across a full multi-section website — balancing a techy aesthetic with approachability for a young audience.',
+      'The biggest tension was tonal: the platform needed to feel technically credible (to educators and parents) while still feeling exciting and accessible to kids. A single visual system had to carry two completely different moods — a dark, electric hero with cyan accents for energy, and a clean white interior for clarity and trust. Every section had to earn its place in the enrolment journey.',
     outcome:
-      'Delivered a fully responsive website live on Vercel, covering hero, courses, features, gallery, pricing, testimonials, and contact — all with a cohesive brand system.',
+      'Delivered a fully responsive 9-section website covering hero, value proposition, founder story, course catalogue (Quadcopter Drone, Basic Robotics, RC Plane Making), an interactive Arduino DIY module, transparent pricing, partner schools, and an enrolment contact form — all live on Vercel.',
     featured: true,
     media: [
-      { type: 'image', src: '/projects/roboflight/section-01-hero.png',         alt: 'ROBOFLIGHT — Hero' },
-      { type: 'image', src: '/projects/roboflight/section-02-stats.png',         alt: 'ROBOFLIGHT — Stats' },
-      { type: 'image', src: '/projects/roboflight/section-03-features.png',      alt: 'ROBOFLIGHT — Features' },
-      { type: 'image', src: '/projects/roboflight/section-04-about.png',         alt: 'ROBOFLIGHT — About' },
-      { type: 'image', src: '/projects/roboflight/section-05-courses.png',       alt: 'ROBOFLIGHT — Courses' },
-      { type: 'image', src: '/projects/roboflight/section-06-arduino.png',       alt: 'ROBOFLIGHT — Arduino DIY' },
-      { type: 'image', src: '/projects/roboflight/section-07-pricing.png',       alt: 'ROBOFLIGHT — Pricing' },
-      { type: 'image', src: '/projects/roboflight/section-08-schools.png',       alt: 'ROBOFLIGHT — Partner Schools' },
-      { type: 'image', src: '/projects/roboflight/section-09-gallery.png',       alt: 'ROBOFLIGHT — Gallery' },
-      { type: 'image', src: '/projects/roboflight/section-10-testimonials.png',  alt: 'ROBOFLIGHT — Testimonials' },
-      { type: 'image', src: '/projects/roboflight/section-11-contact.png',       alt: 'ROBOFLIGHT — Contact & Footer' },
+      {
+        type: 'image',
+        src: '/projects/roboflight/1.png',
+        alt: 'ROBOFLIGHT — Hero section',
+        caption: 'Hero',
+        wide: true,
+      },
+      {
+        type: 'image',
+        src: '/projects/roboflight/2.png',
+        alt: 'ROBOFLIGHT — Why RoboFlight feature cards',
+        caption: 'Value Proposition',
+      },
+      {
+        type: 'image',
+        src: '/projects/roboflight/3.png',
+        alt: 'ROBOFLIGHT — Founder story & about section',
+        caption: 'Founder Story',
+      },
+      {
+        type: 'image',
+        src: '/projects/roboflight/4.png',
+        alt: 'ROBOFLIGHT — Courses offered: Drone, Robotics, RC Plane',
+        caption: 'Course Catalogue',
+        wide: true,
+      },
+      {
+        type: 'image',
+        src: '/projects/roboflight/5.png',
+        alt: 'ROBOFLIGHT — Arduino DIY interactive module',
+        caption: 'Arduino DIY Module',
+        wide: true,
+      },
+      {
+        type: 'image',
+        src: '/projects/roboflight/6.png',
+        alt: 'ROBOFLIGHT — Transparent pricing tiers',
+        caption: 'Pricing',
+        wide: true,
+      },
+      {
+        type: 'image',
+        src: '/projects/roboflight/7.png',
+        alt: 'ROBOFLIGHT — Partner schools across New Brunswick',
+        caption: 'Partner Schools',
+      },
+      {
+        type: 'image',
+        src: '/projects/roboflight/8.png',
+        alt: 'ROBOFLIGHT — Enrol your child contact form',
+        caption: 'Enrolment Form',
+      },
+      {
+        type: 'image',
+        src: '/projects/roboflight/9.png',
+        alt: 'ROBOFLIGHT — Footer with quick links and social',
+        caption: 'Footer',
+        wide: true,
+      },
     ],
   },
   {

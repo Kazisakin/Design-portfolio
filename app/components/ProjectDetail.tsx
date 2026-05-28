@@ -129,25 +129,33 @@ export default function ProjectDetail({ project }: Props) {
           </div>
         </div>
 
-        {/* Image gallery — masonry collage, each image at its natural aspect ratio */}
+        {/* Image gallery — editorial collage grid */}
         {imageMedia.length > 0 && (
           <div className="reveal mb-14">
-            <h2 className="font-display font-bold text-2xl text-white mb-6">Gallery</h2>
-            <div className="columns-1 sm:columns-2 gap-4">
+            <h2 className="font-display font-bold text-2xl text-white mb-6">Design Screens</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {imageMedia.map((item, idx) => (
                 <div
                   key={idx}
                   onClick={() => setLightbox(idx)}
-                  className="break-inside-avoid mb-4 rounded-xl overflow-hidden bg-[#111] cursor-pointer relative group border border-white/5 hover:border-accent/30 transition-colors"
+                  className={[
+                    'rounded-2xl overflow-hidden bg-[#111] cursor-pointer relative group border border-white/5 hover:border-accent/30 transition-colors',
+                    item.wide ? 'sm:col-span-2' : '',
+                  ].join(' ')}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={item.src}
                     alt={item.alt ?? `${project.title} ${idx + 1}`}
-                    className="w-full h-auto block group-hover:scale-[1.02] transition-transform duration-500"
+                    className="w-full h-auto block group-hover:scale-[1.015] transition-transform duration-500 origin-center"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors rounded-xl" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
+                  {item.caption && (
+                    <span className="absolute bottom-3 left-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50 group-hover:text-white/80 transition-colors">
+                      {item.caption}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
