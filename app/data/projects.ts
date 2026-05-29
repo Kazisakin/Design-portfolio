@@ -25,6 +25,7 @@ export interface Project {
   outcome?: string;
   featured: boolean;
   hidden?: boolean;
+  liveUrl?: string;
   media: MediaItem[];
 }
 
@@ -240,6 +241,7 @@ export const projects: Project[] = [
     outcome:
       'A fully responsive multi-page website with a warm, nature-grounded visual identity — live at krishivet.ca.',
     featured: true,
+    liveUrl: 'https://krishivet.ca',
     media: [
       { type: 'image', src: '/projects/krishivet/home-01-hero.png',           alt: 'KrishiVet — Hero' },
       { type: 'image', src: '/projects/krishivet/home-02-mission.png',         alt: 'KrishiVet — Mission' },
@@ -276,6 +278,7 @@ export const projects: Project[] = [
     outcome:
       'Delivered a fully responsive 9-section website covering hero, value proposition, founder story, course catalogue (Quadcopter Drone, Basic Robotics, RC Plane Making), an interactive Arduino DIY module, transparent pricing, partner schools, and an enrolment contact form — all live on Vercel.',
     featured: true,
+    liveUrl: 'https://roboflight.vercel.app',
     media: [
       {
         type: 'image',

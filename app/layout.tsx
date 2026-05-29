@@ -7,8 +7,20 @@ import ScrollProgress from './components/ScrollProgress';
 
 export const metadata = {
   title: 'Kazi Sakin — Design Portfolio',
-  description:
-    'UI/UX, Social Media, Motion Graphics & Brand design by Kazi Mostofa Sakin.',
+  description: 'UI/UX, Social Media, Motion Graphics & Brand design by Kazi Mostofa Sakin — designer who codes.',
+  metadataBase: new URL('https://kazisakin.github.io'),
+  openGraph: {
+    title: 'Kazi Sakin — Design Portfolio',
+    description: 'UI/UX · Social Media · Motion · Brand — by Kazi Mostofa Sakin',
+    url: 'https://kazisakin.github.io',
+    siteName: 'Kazi Sakin Design',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kazi Sakin — Design Portfolio',
+    description: 'UI/UX · Social Media · Motion · Brand — by Kazi Mostofa Sakin',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

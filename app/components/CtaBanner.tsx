@@ -45,7 +45,7 @@ export default function CtaBanner() {
             href={personalInfo.behance}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 border border-white/10 hover:border-accent text-white/60 hover:text-white font-semibold rounded-full transition-all text-sm"
+            className="group inline-flex items-center gap-2 px-8 py-4 border border-white/10 hover:border-accent text-white/60 hover:text-white font-semibold rounded-full transition-all text-sm hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]"
           >
             View Behance
           </a>

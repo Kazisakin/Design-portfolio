@@ -14,8 +14,18 @@ export default function ProjectGrid() {
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const visible = projects.filter((p) => !p.hidden);
-    setVisible(active === ALL ? visible : visible.filter((p) => p.category === active));
+    const all = projects.filter((p) => !p.hidden);
+    const filtered = active === ALL ? all : all.filter((p) => p.category === active);
+    // Fade out then back in
+    if (gridRef.current) gridRef.current.style.opacity = '0';
+    const timer = setTimeout(() => {
+      setVisible(filtered);
+      if (gridRef.current) {
+        gridRef.current.style.opacity = '1';
+        gridRef.current.style.transition = 'opacity 0.35s ease';
+      }
+    }, 180);
+    return () => clearTimeout(timer);
   }, [active]);
 
   useEffect(() => {
@@ -52,7 +62,7 @@ export default function ProjectGrid() {
       </div>
 
       {/* Grid */}
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" style={{ transition: 'opacity 0.35s ease' }}>
         {visible.map((project, i) => (
           <Link
             key={project.slug}

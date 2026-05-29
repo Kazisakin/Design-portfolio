@@ -46,6 +46,10 @@ export default function AboutPage() {
 
         {/* Headline */}
         <div className="reveal mb-20">
+          {/* Avatar */}
+          <div className="w-20 h-20 rounded-full bg-gradient-to-br from-accent to-fuchsia-500 flex items-center justify-center mb-8 text-white font-display font-extrabold text-2xl shadow-[0_0_32px_rgba(139,92,246,0.4)]">
+            KS
+          </div>
           <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">About Me</span>
           <h1 className="font-display font-extrabold text-5xl sm:text-7xl text-white leading-tight mb-8">
             Designer who<br />
@@ -100,9 +104,11 @@ export default function AboutPage() {
               {designTools.map((tool) => (
                 <div
                   key={tool.name}
-                  className="flex items-center gap-3 p-4 rounded-xl bg-[#111] border border-white/5 hover:border-accent/30 transition-colors"
+                  className="flex items-center gap-3 p-4 rounded-xl bg-[#111] border border-white/5 hover:border-accent/30 transition-colors group"
                 >
-                  <span className="text-2xl">{tool.icon}</span>
+                  <div className="w-8 h-8 rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors flex items-center justify-center flex-shrink-0">
+                    <span className="text-accent text-xs font-bold">{tool.name.slice(0, 2).toUpperCase()}</span>
+                  </div>
                   <div>
                     <p className="text-white text-sm font-semibold">{tool.name}</p>
                     <p className="text-white/30 text-xs">{tool.category}</p>

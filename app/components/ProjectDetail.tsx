@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, X, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
 import { projects, type Project } from '../data/projects';
 
 interface Props {
@@ -62,6 +62,18 @@ export default function ProjectDetail({ project }: Props) {
             {project.title}
           </h1>
           <p className="text-white/50 text-base sm:text-xl mt-3">{project.tagline}</p>
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 rounded-full bg-accent/10 hover:bg-accent text-accent hover:text-white border border-accent/30 hover:border-accent text-sm font-semibold transition-all group"
+            >
+              <Globe size={14} />
+              View Live Site
+              <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+          )}
         </div>
 
         {/* Meta */}
@@ -80,7 +92,7 @@ export default function ProjectDetail({ project }: Props) {
         </div>
 
         {/* Cover image */}
-        {(project.coverImage || project.coverVideo) && (
+        {(project.coverVideo || (project.coverImage && project.coverImage !== project.media.find(m => m.type === 'image')?.src)) && (
           <div
             className="reveal reveal-delay-1 mb-14 rounded-2xl overflow-hidden bg-[#111] aspect-[16/9] cursor-pointer relative"
             onClick={() => setLightbox(0)}
@@ -93,6 +105,7 @@ export default function ProjectDetail({ project }: Props) {
             <img
               src={project.coverImage}
               alt={project.title}
+              loading="eager"
               className="absolute inset-0 w-full h-full object-cover hover:scale-[1.02] transition-transform duration-500"
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
@@ -147,6 +160,7 @@ export default function ProjectDetail({ project }: Props) {
                   <img
                     src={item.src}
                     alt={item.alt ?? `${project.title} ${idx + 1}`}
+                    loading="lazy"
                     className="w-full h-auto block group-hover:scale-[1.015] transition-transform duration-500 origin-center"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                   />

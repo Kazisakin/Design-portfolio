@@ -187,3 +187,27 @@ h1, h2, h3, h4 {
   background-size: 1000px 100%;
   animation: shimmer 2.5s linear infinite;
 }
+
+/* ── Floating project card animations (Hero) ── */
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px)   rotate(2.5deg);  }
+  50%       { transform: translateY(-14px) rotate(2.5deg);  }
+}
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px)   rotate(-2deg); }
+  50%       { transform: translateY(-10px) rotate(-2deg); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translateY(-6px)  rotate(1deg);  }
+  50%       { transform: translateY(6px)   rotate(1deg);  }
+}
+.float-a { animation: floatA 5s   ease-in-out infinite; }
+.float-b { animation: floatB 4s   ease-in-out infinite; }
+.float-c { animation: floatC 6.5s ease-in-out infinite; }
+
+/* ── Available badge pulse ── */
+@keyframes ping-slow {
+  0%, 100% { opacity: 1;   transform: scale(1);   }
+  50%       { opacity: 0.4; transform: scale(1.5); }
+}
+.ping-slow { animation: ping-slow 2.2s ease-in-out infinite; }
