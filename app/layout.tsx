@@ -2,17 +2,17 @@ import './globals.css';
 import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
+import PageColor from './components/home/PageColor';
 
 export const metadata = {
   title: 'Kazi Sakin — Design Portfolio',
-  description: 'UI/UX, Social Media, Motion Graphics & Brand design by Kazi Mostofa Sakin — designer who codes.',
-  metadataBase: new URL('https://kazisakin.github.io'),
+  description: 'Brand identity, UI/UX, motion and social media design by Kazi Mostofa Sakin, a designer and Computer Science student.',
+  metadataBase: new URL('https://design.kazimostofasakin.com'),
   openGraph: {
     title: 'Kazi Sakin — Design Portfolio',
     description: 'UI/UX · Social Media · Motion · Brand — by Kazi Mostofa Sakin',
-    url: 'https://kazisakin.github.io',
+    url: 'https://design.kazimostofasakin.com',
     siteName: 'Kazi Sakin Design',
     type: 'website',
   },
@@ -25,10 +25,10 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <body className="noise bg-[#080808] text-[#f0f0f0] antialiased">
+    <html lang="en">
+      <body className="antialiased">
         <ScrollProgress />
-        <CustomCursor />
+        <PageColor />
         <Header />
         <main>{children}</main>
         <Footer />

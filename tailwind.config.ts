@@ -1,41 +1,23 @@
 import type { Config } from 'tailwindcss';
 
+// One colour theme: white paper, near-black ink and a highlighter-lime accent (used as a background, never as text on white).
 export default {
-  darkMode: 'class',
-  content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       colors: {
+        cream: '#ffffff',
+        ink: '#0e0e0e',
+        mist: '#f4f4f1',
         accent: {
-          DEFAULT: '#8B5CF6',
-          light: '#A78BFA',
-          dark: '#7C3AED',
+          DEFAULT: '#d4f760',
+          dark: '#b9e02f',
+          soft: '#f1fcc8',
         },
       },
       fontFamily: {
-        display: ['Syne', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
-      },
-      animation: {
-        'fade-up': 'fadeUp 0.7s ease-out forwards',
-        'fade-in': 'fadeIn 0.5s ease-out forwards',
-        'shimmer': 'shimmer 2.5s linear infinite',
-      },
-      keyframes: {
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(24px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-1000px 0' },
-          '100%': { backgroundPosition: '1000px 0' },
-        },
+        display: ['Manrope', 'system-ui', 'sans-serif'],
+        body: ['Manrope', 'system-ui', 'sans-serif'],
       },
     },
   },

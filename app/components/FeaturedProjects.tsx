@@ -2,9 +2,14 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { projects } from '../data/projects';
+import { projects, Project } from '../data/projects';
 
-const featured = projects.filter((p) => p.featured && !p.hidden);
+// Best, most complete case studies first — shown on the homepage.
+// The rest of the featured work is on the /work page.
+const homepageOrder = ['roboflight-brand', 'krishivet', 'miyabi', 'smak-skin-care', 'the-feyre', 'simplyfresh'];
+const featured = homepageOrder
+  .map((slug) => projects.find((p) => p.slug === slug))
+  .filter((p): p is Project => Boolean(p));
 
 export default function FeaturedProjects() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -27,7 +32,10 @@ export default function FeaturedProjects() {
         <div className="reveal flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-16">
           <div>
             <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-3 block">Selected Work</span>
-            <h2 className="font-display font-bold text-4xl sm:text-5xl text-white">Featured Projects</h2>
+            <h2 className="font-display font-bold text-4xl sm:text-5xl text-white mb-3">Featured Projects</h2>
+            <p className="text-white/40 text-sm max-w-md">
+              Brand identity, UI/UX, and motion work, selected for range and completeness from concept to delivery.
+            </p>
           </div>
           <Link
             href="/work"

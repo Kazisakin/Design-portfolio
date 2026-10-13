@@ -1,59 +1,35 @@
-'use client';
 import React from 'react';
 import Link from 'next/link';
-import { ExternalLink, Mail, ArrowUpRight } from 'lucide-react';
 import { personalInfo } from '../data/projects';
 
 export default function Footer() {
-  const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-white/5 bg-[#0a0a0a]">
-
-      {/* Top CTA strip */}
-      <div className="px-6 py-14 border-b border-white/5">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            {/* Available badge */}
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="ping-slow absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-            </span>
-            <span className="text-white/60 text-sm font-medium">Available for freelance & collaborations</span>
-          </div>
-          <a
-            href={`mailto:${personalInfo.email}`}
-            className="group inline-flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent/80 text-white font-semibold rounded-full text-sm transition-all hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.25)]"
-          >
-            <Mail size={14} />
-            {personalInfo.email}
-            <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
-        </div>
-      </div>
-
-      {/* Main footer row */}
-      <div className="px-6 py-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
-            <p className="font-display font-bold text-white text-lg">Kazi Sakin</p>
-            <p className="text-white/30 text-sm mt-0.5">UI/UX · Social Media · Motion · Brand</p>
-          </div>
-
-          <nav className="flex flex-wrap justify-center gap-6 text-sm text-white/40">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <Link href="/work" className="hover:text-white transition-colors">Work</Link>
-            <Link href="/about" className="hover:text-white transition-colors">About</Link>
-            <a href={personalInfo.behance} target="_blank" rel="noopener noreferrer"
-               className="flex items-center gap-1 hover:text-accent transition-colors">
-              Behance <ExternalLink size={12} />
+    <footer data-bg="#0e0e0e" data-fg="#ffffff" className="relative bg-ink px-5 pb-8 pt-16 text-cream sm:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
+          <div>
+            <p className="eyebrow text-cream/50">Have a project in mind?</p>
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="mt-3 block font-display text-[clamp(28px,5vw,56px)] font-semibold leading-none tracking-tight hover:text-accent"
+            >
+              {personalInfo.email}
             </a>
-            <a href={personalInfo.devPortfolio} target="_blank" rel="noopener noreferrer"
-               className="flex items-center gap-1 hover:text-accent transition-colors">
-              Dev Portfolio <ExternalLink size={12} />
-            </a>
+          </div>
+          <nav className="flex flex-wrap gap-x-7 gap-y-2 text-sm font-semibold">
+            <Link href="/" className="hover:text-accent">Home</Link>
+            <Link href="/work" className="hover:text-accent">Work</Link>
+            <Link href="/about" className="hover:text-accent">About</Link>
+            <a href={personalInfo.behance} target="_blank" rel="noopener noreferrer" className="hover:text-accent">Behance ↗</a>
+            <a href={personalInfo.devPortfolio} target="_blank" rel="noopener noreferrer" className="hover:text-accent">Dev portfolio ↗</a>
           </nav>
-
-          <p className="text-white/20 text-xs">© {year} Kazi Mostofa Sakin</p>
+        </div>
+        <p className="mt-14 select-none font-display text-[clamp(64px,17vw,250px)] font-semibold leading-[0.8] tracking-[-0.05em] text-cream/[0.07]" aria-hidden="true">
+          Kazi Sakin
+        </p>
+        <div className="mt-6 flex flex-wrap justify-between gap-3 text-xs font-medium text-cream/50">
+          <span>© {new Date().getFullYear()} Kazi Mostofa Sakin</span>
+          <span>UI/UX · Brand identity · Motion · Social media</span>
         </div>
       </div>
     </footer>

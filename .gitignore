@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# local backup made before the 2026 redesign
+_backup-before-redesign/
+
+# local working files for case-study screenshots
+_capture-assets/

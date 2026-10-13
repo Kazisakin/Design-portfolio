@@ -7,6 +7,34 @@ export interface MediaItem {
   thumbnail?: string; // optional poster for video
   wide?: boolean;    // spans full width in collage grid
   caption?: string;  // optional section label shown under the image
+  description?: string; // one or two sentences about this screen (brand case studies)
+}
+
+export interface Brand {
+  name: string;
+  summary: string;
+  logo: string;
+  logoCards: [string, string]; // backgrounds for the two logo panels
+  logoBg: string;
+  colors: { name: string; hex: string; role: string }[];
+  font: { name: string; note: string; weights: number[]; sample: [string, string]; sampleAccent: string; body: string };
+  buttons: { label: string; bg: string; fg: string; border?: string; onDark?: boolean }[];
+  headlines: [string, string][];
+  headlineAccent: string;
+  headlineNote: string;
+}
+
+export interface StoryBoard { src: string; title: string; note?: string }
+export interface CaseStory {
+  cover: string;            // hero board
+  idea: { src: string; note: string };   // brand idea / statement board
+  glance?: string;          // optional "at a glance" mosaic
+  identity: StoryBoard[];   // chapter 01
+  websiteOpener: string;    // chapter 02 opener (devices board)
+  world: StoryBoard[];      // chapter 03 (concept applications)
+  worldNote: string;
+  stats: { value: number; suffix?: string; label: string }[];
+  closing: string;
 }
 
 export interface Project {
@@ -21,12 +49,18 @@ export interface Project {
   role: string;
   client?: string;
   description: string;
-  challenge?: string;
-  outcome?: string;
+  challenge?: string;     // shown as "The brief"
+  approach?: string[];    // shown as numbered steps
+  deliverables?: string[];
+  outcome?: string;       // shown as "The result"
   featured: boolean;
   hidden?: boolean;
   liveUrl?: string;
   media: MediaItem[];
+  brand?: Brand;
+  presentation?: string[]; // full-width brand boards, shown Behance-style
+  presentationNote?: string;
+  story?: CaseStory; // brand case studies: chaptered layout with 3D motion
 }
 
 // ─────────────────────────────────────────────
@@ -36,19 +70,18 @@ export const projects: Project[] = [
   {
     slug: 'acc-it-club',
     title: 'ACC IT Club — Member Recruitment',
-    tagline: 'Event campaign & social posts for Batch-22 recruitment drive',
+    tagline: "A recruitment campaign that guides applicants through every step",
     category: 'Branding',
     coverVideo: 'https://res.cloudinary.com/dshmix8ep/video/upload/v1774524522/0001_cuwc4s.mp4',
     year: '2022',
     tools: ['Adobe Photoshop', 'Adobe Illustrator'],
     role: 'Graphic Designer',
     client: 'ACC IT Club',
-    description:
-      'Full visual campaign for the ACC IT Club Batch-22 member recruitment. Each post in the series guides applicants through the journey — from registration to selection — using a dark techy aesthetic with bold orange gradients.',
-    challenge:
-      'Creating a cohesive series where each post feels like part of one story, while standing strong as a standalone piece on social media.',
-    outcome:
-      'A 10-piece campaign set covering every stage of the recruitment process, giving the club a sharp and professional presence for Batch-22.',
+    description: "ACC IT Club needed a campaign for its Batch-22 member recruitment. I designed a series of social posts and a short video that take applicants from the first announcement to the final selection, one step at a time.",
+    challenge: "The club wanted students to understand the whole process at a glance: how to register, what happens after they apply, and what they gain once selected. Each post had to work on its own in a busy feed while still reading as part of one story.",
+    approach: ["Mapped the recruitment journey into clear steps: register, fill in the form, wait 48 hours, check email, selection, bootcamp and contests.", "Created a dark, technical look with bold orange gradients, so the series felt right for an IT club.", "Used one layout system across every post, so the steps read in order when someone scrolls through the page.", "Turned the key visuals into a short promotional video for the launch."],
+    deliverables: ["Launch banner", "Registration announcement", "Eight step-by-step social posts", "Promotional video"],
+    outcome: "A complete and consistent campaign that covered every stage of recruitment and gave the club a professional presence for Batch-22.",
     featured: true,
     media: [
       { type: 'video', src: 'https://res.cloudinary.com/dshmix8ep/video/upload/v1774524522/0001_cuwc4s.mp4', alt: 'ACC IT Club Recruitment Video' },
@@ -67,15 +100,18 @@ export const projects: Project[] = [
   {
     slug: 'acc-eco-amica-club',
     title: 'ACC ECO AMICA CLUB',
-    tagline: 'Motion & visual identity for an eco-focused student club',
+    tagline: "Motion and visual identity for an environmental student club",
     category: 'Motion',
     coverVideo: 'https://res.cloudinary.com/dshmix8ep/video/upload/3_wk2gbv.mp4',
     year: '2024',
     tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe After Effects'],
     role: 'Graphic Designer',
     client: 'ACC ECO AMICA CLUB',
-    description:
-      'Visual design and motion work created for ACC ECO AMICA CLUB. The project focused on building a strong, recognisable presence through bold graphics and engaging video content.',
+    description: "Motion and visual identity work for ACC ECO AMICA, a student club focused on the environment.",
+    challenge: "The club needed a look that felt fresh and positive, and a video that could introduce it quickly on social media.",
+    approach: ["Developed a set of bold graphics built around the club's environmental focus.", "Animated the graphics in After Effects so the identity works in motion, not only in still posts.", "Edited the final piece into a short video that is easy to share."],
+    deliverables: ["Identity graphics", "Animated promotional video"],
+    outcome: "A recognisable look for the club and a motion piece it could share across its channels.",
     featured: true,
     media: [
       { type: 'video', src: 'https://res.cloudinary.com/dshmix8ep/video/upload/3_wk2gbv.mp4', alt: 'ACC ECO AMICA CLUB video' },
@@ -84,19 +120,18 @@ export const projects: Project[] = [
   {
     slug: 'sm-care',
     title: 'SM Care',
-    tagline: 'Product visuals & social posts for a skincare brand',
+    tagline: "Product visuals and social posts for a skincare brand",
     category: 'Social Media',
     coverImage: '/projects/SM%20CARE/main-2.png',
     year: '2022',
     tools: ['Adobe Photoshop', 'Adobe Illustrator'],
     role: 'Graphic Designer',
     client: 'SM Care',
-    description:
-      'Social media creatives and product visuals for SM Care — a skincare brand behind the Collagen Mania Serum and Sweet Magic Soap. Each post was designed to communicate product benefits clearly while maintaining a fresh, premium look.',
-    challenge:
-      'Presenting scientific claims and ingredient highlights in a visually engaging format that feels trustworthy and appealing to a beauty-conscious audience.',
-    outcome:
-      'Delivered a set of polished social posts covering ingredients, benefits, results, and product features — giving SM Care a consistent and professional digital presence.',
+    description: "Social media visuals for SM Care, the skincare brand behind Collagen Mania Serum and Sweet Magic Soap.",
+    challenge: "The posts had to explain ingredients and benefits clearly and build trust, while still looking premium enough for a beauty audience.",
+    approach: ["Split the product story into separate posts for ingredients, features, benefits and results.", "Paired clean product visuals with short, scannable text, so each claim is easy to read.", "Kept one colour and type system across the series, so it reads as one brand on the feed."],
+    deliverables: ["Hero banner", "Ingredients post", "Features post", "Benefits post", "Results post"],
+    outcome: "A consistent set of ready-to-publish posts that gave SM Care a clear and professional presence online.",
     featured: false,
     media: [
       { type: 'image', src: '/projects/SM%20CARE/main-2.png', alt: 'SM Care — hero banner' },
@@ -109,19 +144,18 @@ export const projects: Project[] = [
   {
     slug: 'miyabi',
     title: 'Miyabi — Brand Identity',
-    tagline: 'Logo, packaging & visual identity for a Japanese-inspired skincare brand',
+    tagline: "Logo, packaging and visual identity for a Japanese-inspired skincare brand",
     category: 'Branding',
     coverImage: '/Miyabi/6c6757135223917.61e4594340365.webp',
     year: '2021',
     tools: ['Adobe Photoshop', 'Adobe Illustrator'],
     role: 'Brand Designer',
     client: 'Miyabi Skincare',
-    description:
-      'Full brand identity for Miyabi (みやび) — a Japanese-inspired skincare brand rooted in the concept of refined elegance. The identity blends a sakura-petal icon with a modern serif wordmark, rendered in soft blush pinks to evoke purity and luxury.',
-    challenge:
-      'Balancing Eastern aesthetic influences with a contemporary, globally-appealing visual language — the brand needed to feel authentically Japanese without feeling derivative.',
-    outcome:
-      'Delivered a cohesive identity system including logo, packaging design, and brand mockups. The result is a refined, premium feel that translates beautifully across product and digital touchpoints.',
+    description: "A brand identity for Miyabi (みやび), a Japanese-inspired skincare brand. The name refers to refined elegance, and the whole identity is built around that idea.",
+    challenge: "The brand needed to feel authentically Japanese without relying on clichés, and it had to work equally well on packaging and on screen.",
+    approach: ["Designed a sakura-petal icon paired with a modern serif wordmark.", "Chose a palette of soft blush pinks to suggest purity and care.", "Applied the identity to packaging and product mockups to test it in real use."],
+    deliverables: ["Logo and wordmark", "Colour palette", "Packaging design", "Brand mockups"],
+    outcome: "A refined identity system that carries the same premium feel from the product to the screen.",
     featured: true,
     media: [
       { type: 'image', src: '/Miyabi/6c6757135223917.61e4594340365.webp', alt: 'Miyabi — brand logo editorial' },
@@ -133,19 +167,18 @@ export const projects: Project[] = [
   {
     slug: 'smak-skin-care',
     title: 'SMAK Skin Care',
-    tagline: 'Logo & brand identity for a luxury skincare brand',
+    tagline: "Logo and brand identity for a luxury skincare brand",
     category: 'Branding',
     coverImage: '/projects/SMAK%20SKIN%20CARE/0062a9138394399.621ce68c8fc17.webp',
     year: '2022',
     tools: ['Adobe Photoshop', 'Adobe Illustrator'],
     role: 'Brand Designer',
     client: 'SMAK Skin Care',
-    description:
-      'Brand identity for SMAK Skin Care — a luxury skincare brand built around deep crimson and gold. The identity features a custom serif wordmark with a wave motif icon, evoking richness, depth, and timeless elegance.',
-    challenge:
-      'Creating a logo that reads as high-end and editorial without relying on clichéd beauty tropes — the mark needed to feel unique and ownable.',
-    outcome:
-      'Delivered a complete brand mark and editorial visual that positions SMAK confidently in the premium skincare space.',
+    description: "Logo and brand identity for SMAK Skin Care, a luxury skincare brand.",
+    challenge: "The mark needed to feel high-end and editorial, and to stand apart from the usual beauty-brand look.",
+    approach: ["Designed a custom serif wordmark for a confident, editorial tone.", "Added a wave motif as the icon to suggest flow and depth.", "Built the palette around deep crimson and gold for a rich, premium feel."],
+    deliverables: ["Logo lockup", "Colour palette", "Editorial brand visual"],
+    outcome: "A distinctive brand mark that places SMAK confidently in the premium skincare market.",
     featured: true,
     media: [
       { type: 'image', src: '/projects/SMAK%20SKIN%20CARE/0062a9138394399.621ce68c8fc17.webp', alt: 'SMAK Skin Care — editorial brand visual' },
@@ -155,7 +188,7 @@ export const projects: Project[] = [
   {
     slug: 'the-feyre',
     title: 'The Feyre',
-    tagline: 'Brand identity & campaign visuals for a premium skincare brand',
+    tagline: "Brand identity and campaign visuals for a premium skincare brand",
     category: 'Branding',
     coverImage: '/projects/THE%20Feyere/1-01.png',
     coverVideo: 'https://res.cloudinary.com/dshmix8ep/video/upload/4_1_v4g4os.mp4',
@@ -163,12 +196,11 @@ export const projects: Project[] = [
     tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe Premiere Pro'],
     role: 'Brand Designer',
     client: 'The Feyre',
-    description:
-      'Brand identity and campaign visuals for The Feyre — a premium skincare brand built around the idea of investing in your skin. The identity centres on a clean T|F monogram, soft pinks, and a tone that blends confidence with elegance.',
-    challenge:
-      'Crafting visuals that feel premium and editorial without losing the warmth and approachability that skincare brands need to connect with their audience.',
-    outcome:
-      'Delivered a cohesive brand campaign including hero banner, motion video, and visual assets that give The Feyre a strong, recognisable presence across digital channels.',
+    description: "Brand identity and campaign visuals for The Feyre, a premium skincare brand built around the idea of investing in your skin.",
+    challenge: "The visuals had to feel premium and editorial while keeping the warmth people expect from a skincare brand.",
+    approach: ["Designed a clean T|F monogram as the core of the identity.", "Set a soft pink palette and a tone of voice that balances confidence with elegance.", "Extended the identity into a hero banner and a short brand video."],
+    deliverables: ["T|F monogram", "Hero banner", "Brand video"],
+    outcome: "A cohesive campaign that gives The Feyre a recognisable presence across its digital channels.",
     featured: true,
     media: [
       { type: 'video', src: 'https://res.cloudinary.com/dshmix8ep/video/upload/4_1_v4g4os.mp4', alt: 'The Feyre — brand video' },
@@ -178,19 +210,18 @@ export const projects: Project[] = [
   {
     slug: 'the-feyre-serum',
     title: 'The Feyre Serum',
-    tagline: 'Product video & visual identity for a luxury skincare serum brand',
+    tagline: "Product video and visuals for a luxury skincare serum",
     category: 'Branding',
     coverVideo: 'https://res.cloudinary.com/dshmix8ep/video/upload/WhatsApp_Video_2022-05-01_at_5.25.23_PM_gw55ap.mp4',
     year: '2022',
     tools: ['Adobe Photoshop', 'Adobe Illustrator', 'Adobe Premiere Pro'],
     role: 'Graphic Designer',
     client: 'The Feyre Serum',
-    description:
-      'Brand visuals and product video for The Feyre Serum — a luxury skincare line. The project centred on crafting an elegant, high-end aesthetic that communicates purity, quality, and sophistication.',
-    challenge:
-      'Translating the premium feel of a physical product into compelling digital visuals that stand out in a competitive beauty market.',
-    outcome:
-      'Produced a polished product video and visual assets that elevated the brand\'s presence across social media and digital channels.',
+    description: "A product video and supporting visuals for The Feyre Serum, part of a luxury skincare line.",
+    challenge: "The goal was to carry the premium feel of the physical product into digital content that stands out in a crowded beauty market.",
+    approach: ["Built the visuals around purity, quality and a high-end finish.", "Edited the product video in Premiere Pro for social media.", "Kept the look consistent with The Feyre's wider brand identity."],
+    deliverables: ["Product video", "Supporting brand visuals"],
+    outcome: "A polished product video that strengthened the brand's presence on social media.",
     featured: true,
     media: [
       { type: 'video', src: 'https://res.cloudinary.com/dshmix8ep/video/upload/WhatsApp_Video_2022-05-01_at_5.25.23_PM_gw55ap.mp4', alt: 'The Feyre Serum — product video' },
@@ -199,19 +230,18 @@ export const projects: Project[] = [
   {
     slug: 'simplyfresh',
     title: 'SimplyFresh Social Media',
-    tagline: 'Bold food visuals & promotional posts for a Fredericton restaurant',
+    tagline: "Food visuals and promotional posts for a Fredericton restaurant",
     category: 'Social Media',
     coverImage: '/projects/simplyfresh/Untitled-1.png',
     year: '2024',
     tools: ['Adobe Photoshop', 'Adobe Illustrator'],
     role: 'Graphic Designer',
     client: 'SimplyFresh, Fredericton NB',
-    description:
-      'A full set of social media creatives for SimplyFresh — a dine-in restaurant at 872 Regent Street, Fredericton. Posts span daily specials, weekend deals, and seasonal promotions, all built around a warm amber-and-red palette that mirrors the brand\'s energy.',
-    challenge:
-      'Each dish needed to feel crave-worthy at a glance. Balancing high-contrast typography with vibrant food photography while keeping the layout clean across both square posts and portrait stories.',
-    outcome:
-      'Delivered a cohesive library of ready-to-publish posts covering biriyani, shawarma, pizza, kebab, and ice cream — giving the brand a consistent, appetising presence across Instagram and Facebook.',
+    description: "Social media content for SimplyFresh, a dine-in restaurant on Regent Street in Fredericton, New Brunswick.",
+    challenge: "Every dish had to look appetising at a glance, and each design had to work as both a square post and a portrait story.",
+    approach: ["Created a warm amber-and-red palette that matches the restaurant's energy.", "Paired large, high-contrast type with vibrant food photography, so each offer reads instantly.", "Designed a reusable layout for daily specials, weekend deals and seasonal promotions."],
+    deliverables: ["Campaign overview", "Daily special posts", "Weekend deal posts", "Story formats"],
+    outcome: "A ready-to-publish library of posts covering biriyani, shawarma, pizza, kebab and ice cream, giving the restaurant a consistent look on Instagram and Facebook.",
     featured: true,
     media: [
       { type: 'image', src: '/projects/simplyfresh/Untitled-1.png', alt: 'SimplyFresh full campaign mockup' },
@@ -227,119 +257,300 @@ export const projects: Project[] = [
   {
     slug: 'krishivet',
     title: 'KrishiVet',
-    tagline: 'Full website UI for a Canadian-formulated animal nutrition brand in Bangladesh',
+    tagline: "Brand identity system and website for an animal nutrition brand",
     category: 'UI/UX',
-    coverImage: '/projects/krishivet/home-01-hero.png',
+    coverImage: '/projects/case-shots/krishivet-home.webp',
     year: '2025',
     tools: ['Figma', 'Next.js', 'Tailwind CSS'],
     role: 'UI Designer & Web Developer',
     client: 'KrishiVet Nutra Solution',
-    description:
-      'Designed and developed the full website for KrishiVet — a science-driven animal nutrition brand bringing Canadian-formulated supplements to Bangladeshi farmers. The site spans product listings, why-us, testimonials, FAQ, company profile, and contact pages.',
-    challenge:
-      'Communicating scientific credibility and trust to a farming audience while keeping the UI clean, accessible, and easy to navigate across all devices.',
-    outcome:
-      'A fully responsive multi-page website with a warm, nature-grounded visual identity — live at krishivet.ca.',
+    description: "I designed and built the website for KrishiVet, an animal nutrition brand that brings Canadian-formulated supplements to farmers in Bangladesh.",
+    challenge: "The site had to build trust with a farming audience by explaining the science in simple terms, and it had to be easy to use on any device.",
+    approach: ["Planned the structure around the questions farmers ask: what the products do, why they can be trusted and how to order.", "Designed the interface in Figma with a warm, natural visual style.", "Built the site with Next.js and Tailwind CSS, fully responsive on phones, tablets and desktops."],
+    deliverables: ["Home page", "Products and product detail pages", "Why KrishiVet, About and Company Profile pages", "Testimonials, FAQ and Contact pages"],
+    outcome: "A complete multi-page website, live at krishivet.ca.",
     featured: true,
     liveUrl: 'https://krishivet.ca',
     media: [
-      { type: 'image', src: '/projects/krishivet/home-01-hero.png',           alt: 'KrishiVet — Hero' },
-      { type: 'image', src: '/projects/krishivet/home-02-mission.png',         alt: 'KrishiVet — Mission' },
-      { type: 'image', src: '/projects/krishivet/home-03-products.png',        alt: 'KrishiVet — Products' },
-      { type: 'image', src: '/projects/krishivet/home-04-testimonials.png',    alt: 'KrishiVet — Testimonials' },
-      { type: 'image', src: '/projects/krishivet/home-05-coming-soon.png',     alt: 'KrishiVet — Coming Soon' },
-      { type: 'image', src: '/projects/krishivet/home-06-quality.png',         alt: 'KrishiVet — Quality Commitment' },
-      { type: 'image', src: '/projects/krishivet/home-07-cta.png',             alt: 'KrishiVet — CTA Banner' },
-      { type: 'image', src: '/projects/krishivet/page-products.png',           alt: 'KrishiVet — Products Page' },
-      { type: 'image', src: '/projects/krishivet/page-why-krishivet.png',      alt: 'KrishiVet — Why KrishiVet Page' },
-      { type: 'image', src: '/projects/krishivet/page-about.png',              alt: 'KrishiVet — About Page' },
-      { type: 'image', src: '/projects/krishivet/page-zinc-supplement.png',    alt: 'KrishiVet — Zinc Supplement Page' },
-      { type: 'image', src: '/projects/krishivet/page-testimonials.png',       alt: 'KrishiVet — Testimonials Page' },
-      { type: 'image', src: '/projects/krishivet/page-company-profile.png',    alt: 'KrishiVet — Company Profile Page' },
-      { type: 'image', src: '/projects/krishivet/page-faq.png',                alt: 'KrishiVet — FAQ Page' },
-      { type: 'image', src: '/projects/krishivet/page-contact.png',            alt: 'KrishiVet — Contact Page' },
-      { type: 'image', src: '/projects/krishivet/footer.png',                  alt: 'KrishiVet — Footer' },
+      { type: 'image', src: '/projects/case-shots/krishivet-home.webp', alt: "Krishivet \u2014 Home page on desktop, tablet and phone", caption: "Home page", description: "A full-bleed farm photo and a two-part headline introduce the brand in one line, with the main action, Explore products, in forest green." },
+      { type: 'image', src: '/projects/case-shots/krishivet-products-section.webp', alt: "Krishivet \u2014 Product range on desktop, tablet and phone", caption: "Product range", description: "Four formulations in a swipeable row of photo cards, so farmers can compare products at a glance on any screen." },
+      { type: 'image', src: '/projects/case-shots/krishivet-process.webp', alt: "Krishivet \u2014 Our process on desktop, tablet and phone", caption: "Our process", description: "Research, formulation, field trials and quality release, laid out as four numbered steps that build trust in the science." },
+      { type: 'image', src: '/projects/case-shots/krishivet-products-page.webp', alt: "Krishivet \u2014 Product catalogue on desktop, tablet and phone", caption: "Product catalogue", description: "The catalogue opens with one clear promise before listing each formulation, keeping the same photo-led style as the home page." },
+      { type: 'image', src: '/projects/case-shots/krishivet-why.webp', alt: "Krishivet \u2014 Why KrishiVet on desktop, tablet and phone", caption: "Why KrishiVet", description: "Proof comes first: farms served, reorder rate, PhD scientists and countries, shown as large, easy-to-read figures." },
     ],
+    story: {
+          "cover": "/projects/krishivet-brand/krishivet-brand-01-cover.jpg",
+          "idea": {
+                "src": "/projects/krishivet-brand/krishivet-brand-03-statement.jpg",
+                "note": "KrishiVet sits between two worlds: Canadian lab science and Bangladeshi farms. The identity pairs the trust of science with the warmth of the farm."
+          },
+          "glance": "/projects/krishivet-brand/krishivet-brand-02-mosaic.jpg",
+          "identity": [
+                {
+                      "src": "/projects/krishivet-brand/krishivet-brand-04-logo.jpg",
+                      "title": "The mark",
+                      "note": "A cow and leaf in leaf green above a confident wordmark: farming and nature in one symbol."
+                },
+                {
+                      "src": "/projects/krishivet-brand/krishivet-brand-05-construction.jpg",
+                      "title": "Built on a grid",
+                      "note": "Fixed proportions and generous clear space keep the logo consistent on labels, signs and screens."
+                },
+                {
+                      "src": "/projects/krishivet-brand/krishivet-brand-06-colour.jpg",
+                      "title": "Earth, leaf and harvest",
+                      "note": "Espresso and forest green carry trust; mint and harvest gold add warmth; paper keeps everything light."
+                },
+                {
+                      "src": "/projects/krishivet-brand/krishivet-brand-07-type.jpg",
+                      "title": "Type and voice",
+                      "note": "Manrope with a two-part headline system: a plain statement, then the payoff in green."
+                },
+                {
+                      "src": "/projects/krishivet-brand/krishivet-brand-08-photography.jpg",
+                      "title": "Photography",
+                      "note": "Real farmers with their animals in natural light, never staged studio stock."
+                }
+          ],
+          "websiteOpener": "/projects/krishivet-brand/krishivet-brand-12-devices.jpg",
+          "world": [
+                {
+                      "src": "/projects/krishivet-brand/krishivet-brand-10-posters.jpg",
+                      "title": "Posters"
+                },
+                {
+                      "src": "/projects/krishivet-brand/krishivet-brand-11-social.jpg",
+                      "title": "Social posts"
+                },
+                {
+                      "src": "/projects/krishivet-brand/krishivet-brand-13-phones.jpg",
+                      "title": "On the phone"
+                }
+          ],
+          "worldNote": "How the identity carries beyond the website. Posters and social posts are concept applications.",
+          "stats": [
+                {
+                      "value": 500,
+                      "suffix": "+",
+                      "label": "Farms served"
+                },
+                {
+                      "value": 98,
+                      "suffix": "%",
+                      "label": "Reorder rate"
+                },
+                {
+                      "value": 4,
+                      "label": "Formulations"
+                }
+          ],
+          "closing": "/projects/krishivet-brand/krishivet-brand-14-close.jpg"
+    },
+    presentationNote: 'Logo, colour, type, photography and voice applied across posters, social media and the website. Posters and social posts are concept applications.',
+    presentation: [
+      '/projects/krishivet-brand/krishivet-brand-01-cover.jpg',
+      '/projects/krishivet-brand/krishivet-brand-02-mosaic.jpg',
+      '/projects/krishivet-brand/krishivet-brand-03-statement.jpg',
+      '/projects/krishivet-brand/krishivet-brand-04-logo.jpg',
+      '/projects/krishivet-brand/krishivet-brand-05-construction.jpg',
+      '/projects/krishivet-brand/krishivet-brand-06-colour.jpg',
+      '/projects/krishivet-brand/krishivet-brand-07-type.jpg',
+      '/projects/krishivet-brand/krishivet-brand-08-photography.jpg',
+      '/projects/krishivet-brand/krishivet-brand-10-posters.jpg',
+      '/projects/krishivet-brand/krishivet-brand-11-social.jpg',
+      '/projects/krishivet-brand/krishivet-brand-12-devices.jpg',
+      '/projects/krishivet-brand/krishivet-brand-13-phones.jpg',
+      '/projects/krishivet-brand/krishivet-brand-14-close.jpg',
+    ],
+    brand: {
+      name: 'KrishiVet',
+      summary: 'An earthy, trustworthy identity for a science-led animal nutrition brand. Deep espresso and forest green carry the credibility; soft mint adds warmth; harvest gold marks the details.',
+      logo: '/projects/case-shots/krishivet-logo.png',
+      logoCards: ['#F4F4F1', '#8ECDA8'],
+      logoBg: '#1A1208',
+      colors: [
+        { name: 'Forest Green', hex: '#1E5C38', role: 'Primary buttons and key words' },
+        { name: 'Mint', hex: '#8ECDA8', role: 'Highlights on dark sections' },
+        { name: 'Espresso', hex: '#1A1208', role: 'Hero and dark sections' },
+        { name: 'Bark', hex: '#2B1A0F', role: 'Footer' },
+        { name: 'Harvest Gold', hex: '#C9961F', role: 'Labels and small accents' },
+        { name: 'Stone', hex: '#4A4036', role: 'Body text' },
+        { name: 'White', hex: '#FFFFFF', role: 'Main background' },
+      ],
+      font: {
+        name: 'Manrope',
+        note: 'One family across the site, set tight for headlines',
+        weights: [400, 500, 600, 700],
+        sample: ['Healthier animals.', 'Stronger livelihoods.'],
+        sampleAccent: '#8ECDA8',
+        body: 'Veterinary supplements formulated in Canada, tested on Bangladeshi farms and trusted by farmers who need results they can see.',
+      },
+      buttons: [
+        { label: 'Explore products', bg: '#1E5C38', fg: '#FFFFFF' },
+        { label: 'Contact us', bg: '#1A1208', fg: '#FFFFFF' },
+        { label: 'Explore products', bg: '#1E5C38', fg: '#FFFFFF', onDark: true },
+        { label: 'Talk to an expert', bg: 'transparent', fg: '#FFFFFF', border: 'rgba(255,255,255,0.4)', onDark: true },
+      ],
+      headlines: [
+        ['Formulated in Canada.', 'Proven in Bangladesh.'],
+        ['One mission,', 'held to four standards.'],
+        ['Four products.', 'Real outcomes.'],
+        ['From the lab bench', 'to your barn.'],
+      ],
+      headlineAccent: '#1E5C38',
+      headlineNote: 'Every section opens with a two-part headline: a plain statement, then the payoff in the brand colour. It keeps the voice short, confident and easy to scan.',
+    },
   },
   {
     slug: 'roboflight-brand',
     title: 'ROBOFLIGHT',
-    tagline: 'Website design & development for a hands-on STEM education platform in New Brunswick',
+    tagline: "Brand identity and website for a kids’ robotics school in Fredericton",
     category: 'UI/UX',
-    coverImage: '/projects/roboflight/1.png',
+    coverImage: '/projects/case-shots/roboflight-home.webp',
     year: '2024',
     tools: ['Figma', 'Next.js', 'Tailwind CSS', 'Adobe Illustrator'],
-    role: 'UI Designer & Web Developer',
-    client: 'RoboFlight — New Brunswick, Canada',
-    description:
-      'RoboFlight is a New Brunswick-based STEM education program teaching robotics, drone building, coding, and circuitry to students across 3 schools. I designed and developed the full public website from scratch — shaping the visual identity, information architecture, and UI system that communicates the brand\'s mission to parents, students, and school partners.',
-    challenge:
-      'The biggest tension was tonal: the platform needed to feel technically credible (to educators and parents) while still feeling exciting and accessible to kids. A single visual system had to carry two completely different moods — a dark, electric hero with cyan accents for energy, and a clean white interior for clarity and trust. Every section had to earn its place in the enrolment journey.',
-    outcome:
-      'Delivered a fully responsive 9-section website covering hero, value proposition, founder story, course catalogue (Quadcopter Drone, Basic Robotics, RC Plane Making), an interactive Arduino DIY module, transparent pricing, partner schools, and an enrolment contact form — all live on Vercel.',
+    role: 'Brand Designer & Web Developer',
+    client: 'RoboFlight — Fredericton, New Brunswick',
+    description: "RoboFlight is a STEM education program in New Brunswick that teaches robotics, drone building, coding and circuitry. I designed and developed its public website from scratch.",
+    challenge: "The site had to feel credible to parents and educators while staying exciting for children. One visual system had to carry both moods.",
+    approach: ["Set a night-navy and flight-blue palette that feels technical to parents and bright to kids.", "Wrote short, two-part headlines so every section can be understood at a glance.", "Designed an interactive Arduino build guide that shows what students actually make in class.", "Developed the site with Next.js and Tailwind CSS and deployed it on Vercel."],
+    deliverables: ["Logo and colour palette", "Home page", "Programs section", "Arduino build guide", "Partner schools and testimonials", "Free-class booking and contact"],
+    outcome: "A responsive website with one consistent brand system, live on Vercel, where parents can book a free trial class.",
     featured: true,
     liveUrl: 'https://roboflight.vercel.app',
     media: [
-      {
-        type: 'image',
-        src: '/projects/roboflight/1.png',
-        alt: 'ROBOFLIGHT — Hero section',
-        caption: 'Hero',
-        wide: true,
-      },
-      {
-        type: 'image',
-        src: '/projects/roboflight/2.png',
-        alt: 'ROBOFLIGHT — Why RoboFlight feature cards',
-        caption: 'Value Proposition',
-      },
-      {
-        type: 'image',
-        src: '/projects/roboflight/3.png',
-        alt: 'ROBOFLIGHT — Founder story & about section',
-        caption: 'Founder Story',
-      },
-      {
-        type: 'image',
-        src: '/projects/roboflight/4.png',
-        alt: 'ROBOFLIGHT — Courses offered: Drone, Robotics, RC Plane',
-        caption: 'Course Catalogue',
-        wide: true,
-      },
-      {
-        type: 'image',
-        src: '/projects/roboflight/5.png',
-        alt: 'ROBOFLIGHT — Arduino DIY interactive module',
-        caption: 'Arduino DIY Module',
-        wide: true,
-      },
-      {
-        type: 'image',
-        src: '/projects/roboflight/6.png',
-        alt: 'ROBOFLIGHT — Transparent pricing tiers',
-        caption: 'Pricing',
-        wide: true,
-      },
-      {
-        type: 'image',
-        src: '/projects/roboflight/7.png',
-        alt: 'ROBOFLIGHT — Partner schools across New Brunswick',
-        caption: 'Partner Schools',
-      },
-      {
-        type: 'image',
-        src: '/projects/roboflight/8.png',
-        alt: 'ROBOFLIGHT — Enrol your child contact form',
-        caption: 'Enrolment Form',
-      },
-      {
-        type: 'image',
-        src: '/projects/roboflight/9.png',
-        alt: 'ROBOFLIGHT — Footer with quick links and social',
-        caption: 'Footer',
-        wide: true,
-      },
+      { type: 'image', src: '/projects/case-shots/roboflight-home.webp', alt: "Roboflight \u2014 Home page on desktop, tablet and phone", caption: "Home page", description: "A night-navy hero with a real classroom photo, the class promise and two clear actions to explore programs or watch a class." },
+      { type: 'image', src: '/projects/case-shots/roboflight-programs.webp', alt: "Roboflight \u2014 Programs on desktop, tablet and phone", caption: "Programs", description: "Three programs as cards, with the most popular one highlighted and the age range shown on every card." },
+      { type: 'image', src: '/projects/case-shots/roboflight-arduino.webp', alt: "Roboflight \u2014 How a build works on desktop, tablet and phone", caption: "How a build works", description: "Four steps from gathering parts to racing the finished robot car, linked straight to the interactive builder." },
+      { type: 'image', src: '/projects/case-shots/roboflight-build.webp', alt: "Roboflight \u2014 Interactive robot builder on desktop, tablet and phone", caption: "Interactive robot builder", description: "A browser-based builder where children drag real parts onto a board and wire up their own robot car." },
+      { type: 'image', src: '/projects/case-shots/roboflight-book.webp', alt: "Roboflight \u2014 Book a free class on desktop, tablet and phone", caption: "Book a free class", description: "A short booking flow: choose a program, pick a day and time, and send the request in under a minute." },
     ],
+    story: {
+          "cover": "/projects/roboflight-brand/roboflight-brand-01-cover.jpg",
+          "idea": {
+                "src": "/projects/roboflight-brand/roboflight-brand-02-statement.jpg",
+                "note": "Parents want proof their child is learning something real; kids want it to feel like play. The identity had to do both at once."
+          },
+          "identity": [
+                {
+                      "src": "/projects/roboflight-brand/roboflight-brand-03-logo.jpg",
+                      "title": "The mark",
+                      "note": "A pixel-built drone above a wide, technical wordmark. It reads instantly at any size, from a favicon to a classroom banner."
+                },
+                {
+                      "src": "/projects/roboflight-brand/roboflight-brand-04-construction.jpg",
+                      "title": "Built on a grid",
+                      "note": "The symbol sits on a fixed 3.5 : 1 frame with generous clear space, so it always has room to breathe."
+                },
+                {
+                      "src": "/projects/roboflight-brand/roboflight-brand-07-versions.jpg",
+                      "title": "Works on every colour",
+                      "note": "One-colour versions for navy, blue, cloud and amber backgrounds."
+                },
+                {
+                      "src": "/projects/roboflight-brand/roboflight-brand-05-colour.jpg",
+                      "title": "Night sky, flight blue",
+                      "note": "Night Navy sets the engineering tone, Flight Blue drives action, and Drone Cyan and Amber add energy for kids."
+                },
+                {
+                      "src": "/projects/roboflight-brand/roboflight-brand-06-type.jpg",
+                      "title": "One typeface",
+                      "note": "Manrope across the whole system: friendly, round shapes that still feel precise."
+                }
+          ],
+          "websiteOpener": "/projects/roboflight-brand/roboflight-brand-12-devices.jpg",
+          "world": [
+                {
+                      "src": "/projects/roboflight-brand/roboflight-brand-08-posters.jpg",
+                      "title": "Posters"
+                },
+                {
+                      "src": "/projects/roboflight-brand/roboflight-brand-10-social.jpg",
+                      "title": "Social stickers"
+                },
+                {
+                      "src": "/projects/roboflight-brand/roboflight-brand-09-cards.jpg",
+                      "title": "Pilot licence card"
+                },
+                {
+                      "src": "/projects/roboflight-brand/roboflight-brand-11-app.jpg",
+                      "title": "On the phone"
+                }
+          ],
+          "worldNote": "How the identity carries beyond the website. Posters, stickers and the licence card are concept applications.",
+          "stats": [
+                {
+                      "value": 100,
+                      "suffix": "+",
+                      "label": "Students"
+                },
+                {
+                      "value": 3,
+                      "label": "Partner schools"
+                },
+                {
+                      "value": 8,
+                      "suffix": "+",
+                      "label": "Starting age"
+                }
+          ],
+          "closing": "/projects/roboflight-brand/roboflight-brand-13-close.jpg"
+    },
+    presentationNote: 'Logo, colour, type and voice applied across posters, social media, a student licence card and the website. Posters, social posts and the card are concept applications.',
+    presentation: [
+      '/projects/roboflight-brand/roboflight-brand-01-cover.jpg',
+      '/projects/roboflight-brand/roboflight-brand-02-statement.jpg',
+      '/projects/roboflight-brand/roboflight-brand-03-logo.jpg',
+      '/projects/roboflight-brand/roboflight-brand-04-construction.jpg',
+      '/projects/roboflight-brand/roboflight-brand-05-colour.jpg',
+      '/projects/roboflight-brand/roboflight-brand-06-type.jpg',
+      '/projects/roboflight-brand/roboflight-brand-07-versions.jpg',
+      '/projects/roboflight-brand/roboflight-brand-08-posters.jpg',
+      '/projects/roboflight-brand/roboflight-brand-09-cards.jpg',
+      '/projects/roboflight-brand/roboflight-brand-10-social.jpg',
+      '/projects/roboflight-brand/roboflight-brand-11-app.jpg',
+      '/projects/roboflight-brand/roboflight-brand-12-devices.jpg',
+      '/projects/roboflight-brand/roboflight-brand-13-close.jpg',
+    ],
+    brand: {
+      name: 'RoboFlight',
+      summary: 'A bright, technical identity for a kids’ robotics and coding school. Night navy sets the engineering tone, flight blue drives action, and sky blue adds the energy that keeps it fun for children.',
+      logo: '/projects/case-shots/roboflight-logo.png',
+      logoCards: ['#0A1530', '#2563EB'],
+      logoBg: '#0A1530',
+      colors: [
+        { name: 'Night Navy', hex: '#0A1530', role: 'Hero and dark sections' },
+        { name: 'Flight Blue', hex: '#2563EB', role: 'Primary buttons and key words' },
+        { name: 'Sky', hex: '#38BDF8', role: 'Highlights on dark sections' },
+        { name: 'Slate', hex: '#0F172A', role: 'Headings' },
+        { name: 'Steel', hex: '#334155', role: 'Body text' },
+        { name: 'Amber', hex: '#FBBF24', role: 'Badges and small accents' },
+        { name: 'Cloud', hex: '#F8FAFC', role: 'Alternate sections' },
+        { name: 'White', hex: '#FFFFFF', role: 'Main background' },
+      ],
+      font: {
+        name: 'Manrope',
+        note: 'Friendly geometric shapes that still feel technical',
+        weights: [400, 500, 600, 700],
+        sample: ['Build it. Code it.', 'Watch it take flight.'],
+        sampleAccent: '#38BDF8',
+        body: 'Hands-on robotics, coding, drone and RC plane classes for kids in Fredericton. Small groups, and every kit is included.',
+      },
+      buttons: [
+        { label: 'Book a free class', bg: '#2563EB', fg: '#FFFFFF' },
+        { label: 'See programs', bg: '#FFFFFF', fg: '#0F172A', border: '#CBD5E1' },
+        { label: 'Book a free class', bg: '#2563EB', fg: '#FFFFFF', onDark: true },
+        { label: 'Programs', bg: 'transparent', fg: '#FFFFFF', border: 'rgba(255,255,255,0.35)', onDark: true },
+      ],
+      headlines: [
+        ['Build it. Code it.', 'Watch it take flight.'],
+        ['Real kits. Real code.', 'Real robots.'],
+        ['Three ways', 'to take flight.'],
+        ['From first wire', 'to first drive.'],
+      ],
+      headlineAccent: '#2563EB',
+      headlineNote: 'Short, rhythmic headlines with the last phrase in flight blue. The pattern repeats on every section, so the page reads like one story from first visit to enrolment.',
+    },
   },
   {
     slug: 'social-media-pack',
@@ -393,19 +604,18 @@ export const projects: Project[] = [
   {
     slug: 'bss-event-visuals',
     title: 'BSS Event Visuals',
-    tagline: 'Posters, banners & print for Bangladesh Student Society, UNB',
+    tagline: "Posters, banners and print for the Bangladesh Student Society at UNB",
     category: 'Branding',
     coverImage: '/projects/bss/fall.jpg',
     year: '2023',
     tools: ['Adobe Photoshop', 'Adobe Illustrator'],
     role: 'Graphic Designer',
     client: 'Bangladesh Student Society, UNB',
-    description:
-      'Complete visual package for BSS events at the University of New Brunswick — spanning Fall Orientation 2023, Winter registration campaigns, wide-format print banners, and social media posts.',
-    challenge:
-      'Representing cultural warmth and seasonal themes while maintaining a clean, university-appropriate aesthetic across vastly different formats — from square social posts to large-scale print banners.',
-    outcome:
-      'Delivered a full multi-format campaign used across digital and print. The Fall Orientation series drove strong community turnout.',
+    description: "Event visuals for the Bangladesh Student Society at the University of New Brunswick, covering Fall Orientation 2023, winter registration, print banners and social media posts.",
+    challenge: "The designs had to carry cultural warmth and seasonal themes while staying clean and suitable for a university setting, across formats from square posts to large print banners.",
+    approach: ["Designed the main Fall Orientation poster and adapted it into a wide banner.", "Created deadline and extension announcements that are easy to read at a glance.", "Kept one visual language across digital posts and printed material."],
+    deliverables: ["Fall Orientation poster and banner", "Registration deadline posts", "Winter registration post", "Welcome banner", "Print materials"],
+    outcome: "A multi-format campaign the society used across digital channels and print.",
     featured: false,
     media: [
       { type: 'image', src: '/projects/bss/fall.jpg', alt: 'Fall Orientation 2023 — main poster' },
@@ -445,9 +655,9 @@ export const personalInfo = {
   name: 'Kazi Mostofa Sakin',
   title: 'Designer',
   tagline: 'UI/UX · Social Media · Motion · Brand',
-  bio: "I'm a designer and computer science student who believes great design is invisible — it just works. I craft visual experiences across digital interfaces, social content, and motion graphics. Every pixel has a purpose.",
+  bio: 'Designer and Computer Science student at the University of New Brunswick. I create brand identities, interfaces and motion work for businesses and organisations in Canada and Bangladesh.',
   behance: 'https://www.behance.net/kazimostofasakin',
-  devPortfolio: 'https://kazisakin.github.io',  // your live dev portfolio URL
+  devPortfolio: 'https://www.kazimostofasakin.com/',  // your live dev portfolio URL
   email: 'kazimostofa.sakin@unb.ca',
 };
 
