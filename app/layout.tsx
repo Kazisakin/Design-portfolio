@@ -2,8 +2,6 @@ import './globals.css';
 import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ScrollProgress from './components/ScrollProgress';
-import PageColor from './components/home/PageColor';
 
 export const metadata = {
   title: 'Kazi Sakin — Design Portfolio',
@@ -27,8 +25,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="antialiased">
-        <ScrollProgress />
-        <PageColor />
         <Header />
         <main>{children}</main>
         <Footer />

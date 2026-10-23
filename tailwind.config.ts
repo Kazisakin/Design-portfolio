@@ -7,10 +7,10 @@ export default {
     extend: {
       colors: {
         cream: '#ffffff',
-        ink: '#0e0e0e',
-        mist: '#f4f4f1',
+        ink: '#111111',
+        mist: '#f5f5f2',
         accent: {
-          DEFAULT: '#d4f760',
+          DEFAULT: '#111111',
           dark: '#b9e02f',
           soft: '#f1fcc8',
         },
