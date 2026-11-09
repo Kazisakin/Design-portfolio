@@ -118,9 +118,9 @@ export default function CaseStudy({ slug }: { slug: string }) {
           <div className="frame grid place-items-center" style={{ aspectRatio: '4 / 3', background: c.logo.lightBg }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={c.logo.src}
+              src={c.logo.lightSrc ?? c.logo.src}
               alt={`${c.name} logo on a light background`}
-              style={{ width: '46%', height: 'auto', objectFit: 'contain', filter: c.logo.darkenOnLight ? 'brightness(0)' : undefined }}
+              style={{ width: c.logo.width ?? '46%', height: 'auto', objectFit: 'contain', filter: c.logo.darkenOnLight ? 'brightness(0)' : undefined }}
             />
           </div>
         </Reveal>
@@ -130,7 +130,7 @@ export default function CaseStudy({ slug }: { slug: string }) {
             <img
               src={c.logo.src}
               alt={`${c.name} logo on a dark background`}
-              style={{ width: '46%', height: 'auto', objectFit: 'contain', filter: c.logo.invertOnDark ? 'brightness(0) invert(1)' : undefined }}
+              style={{ width: c.logo.width ?? '46%', height: 'auto', objectFit: 'contain', filter: c.logo.invertOnDark ? 'brightness(0) invert(1)' : undefined }}
             />
           </div>
         </Reveal>
@@ -198,7 +198,7 @@ export default function CaseStudy({ slug }: { slug: string }) {
       ))}
 
       {/* website */}
-      <Chapter n={`0${c.chapters.length + 2}`} title="Website" text="Designed in Figma and built with Next.js and Tailwind CSS. Every page works from phone to desktop." />
+      <Chapter n={`0${c.chapters.length + 2}`} title="Website" text="Designed in Figma and built in Next.js and Tailwind CSS." />
       <div className="wrap">
         <Reveal>
           <ParallaxImage ratio="3 / 2" src={c.laptop} alt={`${c.name} website on a laptop`} />
